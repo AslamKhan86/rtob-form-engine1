@@ -1,0 +1,39 @@
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
+
+  &.table-bordered {
+    border: 1px solid #ddd;
+  }
+
+  td {
+    padding: 10px;
+  }
+}
+
+/*doc
+---
+title: Table
+name: 001-atm-001-table
+category: Atoms - Tables
+---
+
+To apply the table styling make sure to use `class="table"` and it will work
+
+```html_example
+
+<table class="table">
+  <tr>
+    <td>Column1</td><td>Column2</td><td>Column3</td>
+  </tr>
+  <tr>
+    <td>Data 1</td><td>Data 2</td><td>Data 3</td>
+  </tr>
+</table>
+
+```
+*/

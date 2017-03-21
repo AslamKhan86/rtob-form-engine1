@@ -1,0 +1,78 @@
+<div ng-controller="FormRenderer" ng-init="init()" class="formcontainer">
+    <div ng-if="applicationData.application.total_applicants==1" class="row">
+        <authentication-menu></authentication-menu>
+    </div>
+    <form class="basicDataForm" ng-submit="submitFormData(model)">
+        <div class="row">
+            <label class="basicInformationLabel">Basic Information</label>
+            <label class="mandatoryfieldLabel">* MANDATORY FIELDS</label>
+        </div>
+        <div ng-switch="applicationData.application.total_applicants">
+            <div ng-switch-when="1">
+                    <div ng-repeat="field in formData">
+                        <div class="border-line" ng-class="field.Positioning==2 ? 'col-md-6 col-sm-12 col-xs-12' : 'col-md-12 col-sm-12 col-xs-12'">
+                        <div ng-switch="field.Component_Type">
+                            <div ng-switch-when="Text">
+                                <rto-textbox id={{field.Logical_Field_Name}}_a_1 class="inputText" type="text" ng-model="fields[field.Logical_Field_Name+'_a_1']" isEmail={{field.isEmail}} isPan={{field.isPan}} regexp={{field.regexp}} maxlength={{field.Length}}>
+                                </rto-textbox>
+                                <!-- ng-show="submitted && form.email.$error.required" -->
+                                <span ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_1'])}" class="floating-label">{{field.RTOB_Field_Name}} <span ng-if=field.Mandatory=="Yes">*</span></span>
+                            </div>
+                            <div ng-switch-when="Selection Box">
+                                <ac-select id={{field.Logical_Field_Name}}_a_1 style="height: 56px;padding: 17px 0px;" class="inputSelect" ac-model=fields[field.Logical_Field_Name+'_a_1'] ac-options='lovData.name for lovData in getOptions(field.Logical_Field_Name)' ac-change='selectionChanged(value)' ng-model=fields[field.Logical_Field_Name+'_a_1'] ac-settings="{ minWidth:'300px',showSearchBox: false}" ng-attr-data="{{ field.Mandatory=='Yes' ? field.RTOB_Field_Name + '*' : field.RTOB_Field_Name} " ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_1'])}"></ac-select>
+                            </div>
+                            <div ng-switch-when="Toggle" class="switch-staffMaindiv">
+                                <span ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_1'])}">{{field.RTOB_Field_Name}}<span ng-if=field.Mandatory=="Yes">*</span></span>
+                                <switch id={{field.Logical_Field_Name}}_a_1 class="green switch-staff" name="enabled" ng-model="fields[field.Logical_Field_Name+'_a_1']" class="green"></switch>
+                            </div>
+                            <div ng-switch-when="Date" style="min-height: 80px; padding-top: 5px !important; margin-top: -20px;" class="switch-staffMaindiv">
+                                <!--{{field.RTOB_Field_Name}}
+                            <rto-date id={{field.Logical_Field_Name}}_a_{{i+1}} class="inputText "></rto-date>-->
+                                <rto-date ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_1'])}" id={{field.Logical_Field_Name}}_a_1 ng-attr-date-label="{{ field.Mandatory=='Yes' ? field.RTOB_Field_Name + ' (dd/mm/yyyy) *' : field.RTOB_Field_Name + ' (dd/mm/yyyy)'}} " class="inputText " date="fields[field.Logical_Field_Name+'_a_1']" ng-model="fields[field.Logical_Field_Name+'_a_1']">
+                                </rto-date>
+                            </div>
+                            <div ng-switch-default class="col-md-6"></div>
+                        </div>
+                        </div>
+                    </div>
+                
+            </div>
+            <div ng-switch-default>
+                <uib-accordion close-others="oneAtATime">
+                    <div class="row uib-accordion-wrapper" ng-repeat="i in range(applicationData.application.total_applicants)">
+                        <div uib-accordion-group class="panel-default" ng-attr-is-disabled="applicant[i].isDisabled" is-open="group[i].open">
+                            <authentication-menu></authentication-menu>
+                            <uib-accordion-heading>
+                                Applicant {{i+1}}<i class="pull-right glyphicon" ng-class="{'glyphicon-minus': group[i].open, 'glyphicon-plus': !group[i].open}"></i>
+                            </uib-accordion-heading>
+                            <div ng-repeat="field in formData">
+                                <div class="border-line" ng-class="field.Positioning==2 ? 'col-md-6 col-sm-12 col-xs-12' : 'col-md-12 col-sm-12 col-xs-12'">
+                                    <div ng-switch="field.Component_Type">
+                                        <div ng-switch-when="Text">
+                                            <rto-textbox id={{field.Logical_Field_Name}}_a_{{i+1}} class="inputText" type="text" isEmail={{field.isEmail}} isPan={{field.isPan}} regexp={{field.regexp}} maxlength={{field.Length}} ng-model="fields[field.Logical_Field_Name+'_a_'+(i+1)]" required>
+                                            </rto-textbox>
+                                            <span ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_'+(i+1)])}" class="floating-label">{{field.RTOB_Field_Name}} <span ng-if=field.Mandatory=="Yes">*</span></span>
+                                        </div>
+                                        <div ng-switch-when="Selection Box">
+                                            <ac-select id={{field.Logical_Field_Name}}_a_1 style="height: 56px;padding: 17px 0px;" class="inputSelect" ac-model=fields[field.Logical_Field_Name+'_a_1'] ac-options='lovData.name for lovData in getOptions(field.Logical_Field_Name)' ac-change='selectionChanged(value)' ng-model=fields[field.Logical_Field_Name+'_a_1'] ac-settings="{ minWidth:'300px',showSearchBox: false}" ng-attr-data="{{ field.Mandatory=='Yes' ? field.RTOB_Field_Name + '*' : field.RTOB_Field_Name}} " ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_1'])}"></ac-select>
+                                        </div>
+                                        <div ng-switch-when="Toggle" class="switch-staffMaindiv">
+                                            <span ng-class="{notValid: (field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_'+(i+1)])}">{{field.RTOB_Field_Name}}</span><span ng-if=field.Mandatory=="Yes">*</span>
+                                            <switch id={{field.Logical_Field_Name}}_a_{{i+1}} class="green switch-staff" name="enabled" ng-model="fields[field.Logical_Field_Name+'_a_'+(i+1)]" class="green"></switch>
+                                        </div>
+                                        <div ng-switch-when="Date" style="min-height: 80px; padding-top: 5px !important; margin-top: -20px;" class="switch-staffMaindiv">
+                                            <!--{{field.RTOB_Field_Name}}
+                                      <rto-date id={{field.Logical_Field_Name}}_a_{{i+1}} class="inputText "></rto-date>-->
+                                            <rto-date ng-attr-is-valid="{{(field.Mandatory=='Yes') && (error[field.Logical_Field_Name+'_a_'+(i+1)]) ? notValid : valid}}" id={{field.Logical_Field_Name}}_a_{{i+1}} ng-attr-date-label="{{ field.Mandatory=='Yes' ? field.RTOB_Field_Name + ' (dd/mm/yyyy) *' : field.RTOB_Field_Name + ' (dd/mm/yyyy)'}} " date="fields[field.Logical_Field_Name+'_a_'+(i+1)]" class="inputText "></rto-date>
+                                        </div>
+                                        <div ng-switch-default class="col-md-6"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </uib-accordion>
+            </div>
+        </div>
+    </form>
+</div>

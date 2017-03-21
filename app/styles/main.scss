@@ -1,0 +1,760 @@
+@import 'landing';
+@import "compass";
+
+body,
+html {
+    font-size: 15px;
+}
+
+.clearfix {
+    &:before {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.container {}
+
+.page-wrap {
+    @extend .clearfix;
+    background-color: #F6F6F6;
+}
+
+.headermenu1 {
+    background-color: #434750;
+    padding: 40px 20px;
+
+    p {
+        color: #49775B;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            padding-left: 40px;
+            background: url("../img/ico-tick.svg") center left no-repeat;
+            color: #D3D6D8;
+        }
+    }
+}
+
+.leftmenu {
+    background-color: #F6F6F6;
+    // padding: 40px 20px;
+    p {
+        padding-left: 30px;
+        color: #333333;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            padding: 5px 0;
+
+            a {
+                padding: 5px 0 5px 40px;
+                background: url("../img/tick.png") center left no-repeat;
+                color: #D8D8D8;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.formsection {
+    background-color: #fff;
+}
+
+.formcontainer1 {
+    @extend .clearfix;
+    padding: 20px;
+
+    .header {
+        color: #20C1F8;
+    }
+}
+
+.progressbar {
+    padding: 0;
+
+    .progress {
+        border-radius: 0;
+        margin: 0;
+        height: 70px;
+        background-color: #424547!important;
+        background-image: none;
+    }
+
+    .progress-bar {
+        background-color: #52A9E4 !important;
+        padding-top: 30px;
+        background-image: none;
+    }
+}
+
+.footer {
+    background: #919191;
+    color: #fff;
+    height: 70px;
+    text-align: center;
+    border: 0;
+    width: 100%;
+    outline: none;
+}
+
+.footer:hover {
+    background: #36373A;
+}
+// tick mark for input field - start
+
+.inputContainer {
+    position: relative;
+
+    .inputAnimate {
+        font-size: 18px;
+        padding: 10px 10px 10px 12px;
+        display: block;
+        width: 300px;
+        border: none;
+    }
+
+    .inputAnimate:focus {
+        outline: none;
+    }
+
+    label {
+        color: #000;
+        font-size: 14px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    .inputAnimate:focus ~ label,
+    .inputAnimate:valid ~ label {
+        top: -5px;
+        font-size: 12px;
+        color: #50ABE2;
+    }
+
+    .inputAnimate:valid ~ label {
+        height: 50px;
+        transition: none;
+        background: url("../img/ico-tick.svg") 0 22px no-repeat;
+    }
+
+    .inputAnimate:focus ~ .highlight {
+        -webkit-animation: inputHighlighter 0.3s ease;
+        -moz-animation: inputHighlighter 0.3s ease;
+        animation: inputHighlighter 0.3s ease;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.dateInputBox {
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid white !important;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    width: 30% !important;
+    text-align: center;
+    margin-right: -4px;
+}
+
+.dateInputBox:focus {
+    outline: none !important;
+    border: 1px solid #29C0F6;
+}
+
+.dateLabelContainer {
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+.colorBlue {
+    color: #29C0F6;
+}
+
+.colorRed {
+    color: #FF0000 !important;
+}
+// tick mark for input field - end
+
+.formpageBackground {
+    background-color: #F6F6F6;
+    padding: 0 !important;
+}
+
+.banner_logo {
+    background: url("../img/forms/img_sc_logo.svg") center center no-repeat;
+    height: 50px;
+    //background-position: 50% 50%;
+    margin: 40px;
+}
+
+.basicinformation_area {
+    padding: 20px;
+}
+
+.headerMenulist {
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    background: url("../img/ico-tick.svg") center left no-repeat;
+    padding-left: 35px;
+    list-style: none;
+    color: #D3D6D8;
+}
+
+.basicInfoHeading {
+    margin-top: 0 !important;
+    color: #456846;
+}
+
+.header-menu {
+    @extend .clearfix;
+    background-color: #252934;
+    padding: 30px;
+    list-style: none;
+}
+
+.authenticate-menu {
+    color: #29C0F6;
+    padding: 60px 0 25px 25px;
+    font-size: 16px;
+}
+
+.authentication-options > li {
+    border-right: 1px solid #ddd;
+    width: 25%;
+    text-align: center;
+    @media only screen and (max-width: 500px) {
+      text-align: center;
+      width: 50%;
+      float: left;
+      margin: 10px 0;
+    }
+}
+.authentication-options .online-tab{
+  @media only screen and (max-width: 500px) {
+    border: none !important;
+  }
+}
+
+
+.authentication-options > li label {
+    margin-top: 10px;
+}
+
+.authentication-options > li:last-child {
+    border: none;
+}
+
+.authentication-options > li a {
+    font-size: 12px;
+    font-weight: 400;
+    color: #333333;
+    text-decoration: none;
+}
+
+.authentication-options {
+    border-top: 1px solid #ddd;
+    margin-left: 25px;
+    @media only screen and (max-width: 500px) {
+      margin-left: 0;
+    }
+}
+
+
+
+.hide {
+    display: none;
+}
+
+.headerLeft {
+    width: 50%;
+    float: left;
+}
+
+.headerRight {
+    width: 50%;
+    float: left;
+}
+
+.rightmenu {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background-color: white;
+}
+
+.headerMenu {
+    list-style: none !important;
+}
+
+.formcontainer {
+    padding: 30px 40px;
+}
+
+.basicInformationLabel {
+    font-weight: normal;
+    color: #29C0F6;
+    font-size: 16px;
+}
+
+.mandatoryfieldLabel {
+    float: right;
+    color: #CACACA;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.border-line {
+    border-bottom: 1px solid #F2F2F2;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.right-border {
+    border-right: 1px solid #F2F2F2;
+}
+
+.switch-staff {
+    float: right;
+    padding: 0 10px;
+}
+
+.switch-staff-main {
+    margin: 15px 0 10px -5px;
+}
+
+.switch-staffMaindiv {
+    height: 63px;
+    padding-top: 22px !important;
+}
+
+.switch.checked small {
+    left: 43px;
+}
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label {
+    top: 8px;
+    bottom: 10px;
+    left: 20px;
+    font-size: 11px;
+    opacity: 1;
+    color: #3BC7FA;
+    background: url("../img/ico-tick.svg") 0 22px no-repeat;
+}
+
+.inputText {
+    font-size: 15px;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    outline: none;
+    padding: 25px 30px 16px;
+}
+
+.inputSelect {
+    height: 56px;
+    padding: 17px 0;
+    width: 250px;
+    font-size: 15px;
+}
+
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 20px;
+    top: 18px;
+    transition: 0.2s ease all;
+}
+
+.footer-button {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.navbar-inverse {
+    background-color: #f6f6f6;
+    border-color: #f6f6f6;
+}
+
+.dedupe-modal {
+    .panel-heading {
+        padding: 0;
+    }
+
+    .table {
+        margin: 0;
+    }
+
+    .panel-heading .panel {
+        border-radius: 0;
+        border: none;
+    }
+
+    .panel-default {
+        border-color: transparent;
+    }
+
+    .panel-default > .panel-heading {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    .panel-group {
+        margin: 0;
+    }
+
+    .panel {
+        box-shadow: none;
+    }
+
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > td,
+    .table > tfoot > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+        border: 0;
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        border: 0;
+    }
+
+    .table-bordered {
+        border: 0;
+    }
+
+    .btn-group {
+        display: block !important;
+    }
+}
+// Dedude popup styling starts from here
+
+.modal-content {
+    span {
+        font-size: 32px;
+        color: white !important;
+        margin-right: -4%;
+        opacity: 1 !important;
+        font-weight: normal;
+        position: relative;
+        z-index: 999;
+        margin-top: -4%;
+        cursor: pointer;
+    }
+
+    .modal-mainbodylayout {
+        padding: 35px;
+
+        .modal-body-headings {
+            border-bottom: 1px solid #f2f2f2;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    .exactMatch {
+        font-size: 22px;
+    }
+
+    .category_headings {
+        color: black !important;
+        margin: 0 !important;
+    }
+
+    .category {
+        font-size: 16px;
+    }
+
+    .categoryno {
+        font-size: 11px;
+        padding: 7px;
+        background-color: #01B9F8;
+        border-radius: 50%;
+    }
+
+    .categoryno_exactlength {
+        font-size: 11px;
+        padding: 6px 9px;
+        background-color: #01B9F8;
+        border-radius: 50%;
+    }
+
+    .modal-header-outarea {
+        background-color: #24272C !important;
+        border-bottom: 1px solid #24272C;
+        padding: 35px;
+
+        label {
+            color: white;
+            font-weight: normal;
+            font-size: 18px;
+        }
+    }
+}
+
+.table-bordered > thead > tr > td,
+.table-bordered > thead > tr > th {
+    color: #c2c2c2;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+table .exactmatchAccordion {
+    background-color: #c8c8c8;
+    padding: 10px 13px;
+    border-radius: 50%;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.matchdisplaycontent {
+    list-style-type: none;
+}
+
+.matchdisplaycontent li {
+    float: left;
+    display: block;
+    padding: 20px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #c8c8c8;
+}
+
+table tbody tr:last-child {
+    border-bottom: none !important;
+}
+
+.likelymatch-bodylayout {
+    padding: 35px 0 0;
+}
+
+.cancelapplicationButton {
+    padding: 20px 16px;
+    text-align: center;
+    background-color: #D8D4D5;
+    cursor: pointer;
+}
+
+.proceedbutton {
+    padding: 20px 16px;
+    text-align: center;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+.modal-header-outarea:after {
+    z-index: 5;
+    position: relative;
+    top: 50px;
+    left: 73%;
+    margin-left: -25%;
+    content: '';
+    border-top: solid 16px #24272C;
+    border-left: solid 16px transparent;
+    border-right: solid 16px transparent;
+}
+
+table tbody tr:focus {
+    color: red !important;
+}
+
+.exactmatchShow ul li {
+    width: 50%;
+    background-color: #F6F7FB;
+}
+
+.exactmatchShow ul li:last-child {
+    width: 100%;
+}
+
+.exactmatchShow ul {
+    padding: 0 !important;
+}
+
+.modal-header label .exactMacthtitlefont {
+    color: #07B2F0;
+    font-size: 20px;
+}
+// .matchdisplaycontent{padding:0px !important;}
+
+table tbody tr td input[type='radio'] {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    //border:1px solid darkgray;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 5px 0 gray inset;
+}
+
+table tbody tr td input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+    border-radius: 50%;
+}
+
+table tbody tr td input[type='radio']:checked:before {
+    background: #66CC66;
+}
+
+.tabelrowcolor {
+    background-color: red;
+}
+
+button:disabled {
+    background-color: #c8c8c8;
+    padding: 19px 16px !important;
+}
+
+.aadhar-bg {
+    background: url("../img/svg/ico_aadhaar_black.svg") center center no-repeat;
+}
+
+.credit-card-bg {
+    background: url("../img/svg/ico_creditcard_black.svg") center center no-repeat;
+}
+
+.online-banking-bg {
+    background: url("../img/svg/ico_onlinebanking_black.svg") center center no-repeat;
+}
+
+.atm-card-bg {
+    background: url("../img/svg/ico_atm_black.svg") center center no-repeat;
+}
+
+.nav-tabs > li {
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    div {
+        color: #D3D6D8;
+        height: 50px;
+    }
+}
+
+.selected {
+    color: #000;
+}
+
+.fancymodal .fancymodal-content {
+    background: red;
+    max-width: 375px;
+}
+
+.dedupe-modal.fancymodal-content {
+    background: transparent;
+    max-width: 100%;
+
+  }
+  .dedupe-close.fancymodal-content {
+    background: transparent;
+    max-width: 100%;
+  }
+  .dedupe-modal{
+     padding: 0 !important;
+   }
+
+.error-title {
+    min-height: 250px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+
+    .close-button {
+        background: #fff;
+        color: #000;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+    }
+
+    .close-button-sm {
+        width: 50%;
+        padding: 8px;
+    }
+
+    .reject-button {
+        background: #fff;
+        color: #000;
+        width: 50%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 20px;
+    }
+}
+
+table thead tr th {
+    text-align: center !important;
+}
+
+.notValid {
+    color: red;
+}
+
+.error {
+    color: #fff;
+    text-align: center;
+}
+
+.ac-select-popup li {
+    color: #000;
+}
+
+.ac-select-display {
+    color: #000;
+}
+.switch small{
+  background-image: url(../img/ico_toggle_off_ball_with_cross@3x.png);
+  background-size: 34px 38px;
+  background-position: -2px 0px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  box-shadow: none;
+}
+.switch.checked small {
+  background-image: url(../img/ico_toggle_on_ball_with_tick@3x.png);
+  background-size: 34px 38px;
+  background-position: -2px 0px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  box-shadow: none;
+}

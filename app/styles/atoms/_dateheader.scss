@@ -1,0 +1,127 @@
+.date {
+
+  @include element(header) {
+
+    @include clearfix();
+    background-color: $date-header-background;
+    border: $date-header-border;
+    padding: $date-header-padding;
+  }
+
+  @include element(content) {
+
+    ul {
+      margin-left: 0;
+    }
+
+    [class*=" application__text"],
+    [class^="application__text"] {
+      padding-bottom: $date-header-padding;
+      padding-top: $date-header-padding;
+      position: relative;
+
+      label {
+        font-weight: bold;
+      }
+
+      small {
+        display: block;
+        font-size: $date-group-list-status-size;
+        text-transform: capitalize;
+      }
+
+      .financial--inline {
+        display: block;
+        margin-top: (-$date-header-padding);
+      }
+
+      .close-button {
+        display: none;
+        right: 1.5rem;
+        top: $date-group-list-close-button-top;
+      }
+    }
+
+    .application__text--processing {
+
+      .close-button {
+        display: block !important;
+      }
+    }
+
+    li {
+      background: $date-content-list-even-color;
+    }
+
+    li:nth-child(odd) {
+      background: $date-content-list-odd-color;
+    }
+  }
+}
+
+/*doc
+---
+title: Date Headers
+name: 000-atm-002-dateheader
+category: Atoms - Date Headers
+---
+
+```html_example
+
+<div class="date__header">
+  <span class="send--left">Today</span>
+  <span class="send--right">25 January 2016</span>
+</div>
+
+```
+
+```html_example
+
+<div class="date__content">
+    <ul>
+        <li>
+            <div class="application__text--success">
+                <label>Main Label</label>
+                <div class="financial--inline">
+                    <span class="financial__currency">USD</span>
+                    <span class="financial__value">100.00</span>
+                </div>
+                <small>Completed</small>
+                <button class="close-button" type="button">
+                  <span>&times;</span>
+                </button>
+            </div>
+
+        </li>
+        <li>
+            <div class="application__text--processing">
+                <label>Main Label</label>
+                <div class="financial--inline">
+                    <span class="financial__currency">USD</span>
+                    <span class="financial__value">100.00</span>
+                </div>
+                <small>Pending</small>
+                <button class="close-button" type="button">
+                  <span>&times;</span>
+                </button>
+            </div>
+
+        </li>
+        <li>
+            <div class="application__text--disabled">
+                <label>Main Label</label>
+                <div class="financial--inline">
+                    <span class="financial__currency">USD</span>
+                    <span class="financial__value">100.00</span>
+                </div>
+                <small>Expired</small>
+
+            </div>
+
+        </li>
+    </ul>
+</div>
+
+```
+
+*/

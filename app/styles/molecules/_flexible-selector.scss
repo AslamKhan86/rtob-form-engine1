@@ -1,0 +1,235 @@
+// scss-lint:disable SelectorFormat MergeableSelector
+
+.flexible-selector {
+  position: relative;
+  width: 100%;
+  border-radius: 25px;
+  margin: 10px;
+  border: 1px solid #2f343a;
+  background-color: #24282c;
+
+  ul {
+   // margin: 0;
+  }
+}
+
+.flexible-selector--default {
+  color: $black;
+  cursor: pointer;
+  display: block;
+  font-size: 1.6rem;
+  position: relative;
+  text-decoration: none;
+  transition: border-color $anim;
+  width: 100%;
+  
+
+  a {
+    &:hover {
+      color: $dark-color2;
+    }
+  }
+
+  div {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    padding-left: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    border-color: $gray;
+  }
+
+  &::after {
+    border-left: $triangle-size * $triangle-ratio solid transparent;
+    border-right: $triangle-size * $triangle-ratio solid transparent;
+    border-top: $triangle-size solid $gray;
+    content: '';
+    position: absolute;
+    right: -.5rem;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+.flexible-selector__items {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  ul {
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 5px 0 $black-alpha-dark3, 0 2px 10px 0 $black-alpha-dark4;
+    left: 0;
+    list-style: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    transition: opacity $anim, max-height $anim;
+    width: 100%;
+    z-index: 1;
+
+    li:first-child a:hover {
+      border-radius: .2rem .2rem 0 0;
+    }
+
+    li:last-child a {
+      margin-bottom: 1.5rem;
+
+      &:hover {
+        border-radius: 0 0 .2rem .2rem;
+      }
+    }
+  }
+
+  li a {
+    color: $black;
+    cursor: pointer;
+    display: block;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    transition: background-color $anim, color $anim;
+
+    &:hover {
+      background-color: $dark-white;
+      color: $dark-gray;
+    }
+  }
+
+  .flexible-selector--selected {
+    border-bottom: 1px solid $black-alpha;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .selected {
+    color: $red;
+    font-weight: 700 !important;
+  }
+}
+
+.flexible-selector.open {
+  .flexible-selector__items ul {
+    max-height: 30rem;
+    opacity: 1;
+    overflow-y: scroll;
+  }
+}
+
+.flexible-selector.dark {
+  .flexible-selector--default {
+    border-color: $gray;
+    color: $light-gray;
+
+    &:hover {
+      border-color: $light-gray;
+    }
+  }
+}
+
+/*doc
+---
+title: Flexible Selector
+name: 002-mol-002-flexibleselector
+category: Molecules - Form Components
+---
+
+Account list display
+
+```html_example
+
+<dl class="flexible-selector callout">
+    <dt class="flexible-selector--default">
+    <a>
+      <div class="row expanded">
+        <div class="small-6 columns">
+          <div class="form__label">
+          <label>Current Account</label>
+          <small># 12345678</small>
+          </div>
+        </div>
+        <div class="small-6 columns text--right">
+          <div class="financial--inline">
+          <span class="financial__currency">USD</span>
+          <span class="financial__value">100.00</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </dt>
+    <dd class="flexible-selector__items">
+        <ul>
+            <li>
+                <a>
+                    <div class="row expanded">
+                        <div class="small-6 columns">
+                            <div class="form__label">
+                                <label>Current Account</label>
+                                <small># 12345678</small>
+                            </div>
+                        </div>
+                        <div class="small-6 columns text--right">
+                            <div class="financial--inline">
+                                <span class="financial__currency">USD</span>
+                                <span class="financial__value">100.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="row expanded">
+                        <div class="small-6 columns">
+                            <div class="form__label">
+                                <label>Saving Account</label>
+                                <small># 987563</small>
+                            </div>
+                        </div>
+                        <div class="small-6 columns text--right">
+                            <div class="financial--inline">
+                                <span class="financial__currency">USD</span>
+                                <span class="financial__value">345.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="row expanded">
+                        <div class="small-6 columns">
+                            <div class="form__label">
+                                <label>Shared Account</label>
+                                <small># ********4325</small>
+                            </div>
+                        </div>
+                        <div class="small-6 columns text--right">
+                            <div class="financial--inline">
+                                <span class="financial__currency">INR</span>
+                                <span class="financial__value">50,64,435.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </dd>
+    <input type="hidden" name="accountSelector">
+</dl>
+
+
+```
+
+*/

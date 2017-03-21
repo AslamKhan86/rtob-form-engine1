@@ -1,0 +1,19 @@
+//
+// Every atom from 'atoms' folder should be included in this file.
+// '_base-styles.scss' is included in main.scss.
+//
+// contains all styles related to the breadcrumb (Wizard steps)
+@import 'breadcrumb';
+// contains all styles related to the Title and subtitle
+@import 'title-subtitle';
+// contains all styles related to the Financil values
+@import 'finance';
+// contains all styles related to the forms atomic elements
+@import 'form';
+// contains all styles related to the Date Header Label
+@import 'dateheader';
+// contains all styles related to the table Data
+@import 'table';
+// contains all styles related to the table Data
+@import 'icon';
+

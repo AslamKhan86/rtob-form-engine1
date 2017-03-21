@@ -1,0 +1,237 @@
+//
+// Defining custom mixins
+//
+
+// https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/addons/_font-face.scss
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url('#{$file-path}.eot');
+    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+    url('#{$file-path}.woff') format('woff'),
+    url('#{$file-path}.ttf') format('truetype'),
+    url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+	}
+}
+
+// force child elements to Clearfix
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+	}
+}
+
+// force full size background color (goot to use for modal boxes)
+
+@mixin fullscreen($color , $z-index) {
+  background-color: $color;
+  display: block;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: $z-index;
+}
+
+// force component to center
+
+@mixin set-center($top-space) {
+  margin: $top-space auto;
+}
+
+@mixin set-vertically-and-horizontally($percentage-vertical, $percentage-horizontal) {
+  position: absolute;
+  top: $percentage-vertical;
+  left: $percentage-horizontal;
+  -webkit-transform: translate((-$percentage-horizontal), (-$percentage-vertical));
+  -ms-transform: translate((-$percentage-horizontal), (-$percentage-vertical));
+  transform: translate((-$percentage-horizontal), (-$percentage-vertical));
+}
+
+@mixin set-full-center {
+  //position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+// Animation
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+// box shadow
+@mixin box-shadow($string) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow: $string;
+  -ms-box-shadow: $string;
+  -o-box-shadow: $string;
+  box-shadow: $string;
+}
+
+// Placeholder
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin panel($width, $shadow, $border, $text-align:left) {
+  @include box-shadow($shadow);
+  border: $border;
+  background: $light-color1;
+  padding: 20px;
+  display: block;
+  width: $width;
+  text-align: $text-align;
+}
+// show corner border
+$default-border-direction: left !default;
+
+@mixin side-border($color, $thickness , $direction:$default-border-direction) {
+  border-#{$direction}: $thickness solid $color;
+  padding-#{$direction}: $thickness * 2;
+}
+
+// Create B.E.M selector
+//elements get appended with "__" and the $name
+@mixin element($name) {
+  @at-root   #{&}__#{$name} {
+    @content;
+  }
+}
+
+//modifiers get appended with "--" and the $name
+@mixin modifier($name) {
+  @at-root   #{&}--#{$name} {
+    @content;
+  }
+}
+
+// used to truncate a text
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// used to generate a double border
+@mixin double-border($color1, $color2, $direction) {
+  position: relative;
+  z-index: 1;
+  border-#{$direction}: 1px solid $color1;
+
+  &::after {
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -2;
+    border-#{$direction}: 1px solid $color2;
+  }
+}
+
+// font-size for rem with px fallback
+@mixin font-size($size-value: 1.6) {
+  //font-size: ($size-value * 10) + px;
+  font-size: $size-value + rem;
+}
+
+@mixin button-border($top-bottom-border, $side-border) {
+  border-top: 1px solid $top-bottom-border;
+  border-bottom: 1px solid $top-bottom-border;
+  border-left: 1px solid $side-border;
+  border-right: 1px solid $side-border;
+}
+
+//
+// a mixin for easy use of rem with px as fallback
+// usage: @include x-rem(font-size, 14px)
+// usage: @include x-rem(marign, 0 12px 2 1.2)
+// usage: @include x-rem(padding, 1.5 24px)
+// https://gist.github.com/4530526
+//
+
+@mixin x-rem($property, $values) {
+// Create a couple of empty lists as output buffers.
+  $base-font-size: 16px; // should be consistent with your html/body font-size
+  $px-values: ();
+  $rem-values: ();
+
+// Loop through the $values list
+  @each $value in $values {
+  // For each property value, if it's in rem or px, derive both rem and
+  // px values for it and add those to the end of the appropriate buffer.
+  // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 {
+    // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+    // px value given - calculate rem value from base-font-size
+      $new-rem-value: $value / $base-font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else {
+    // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $base-font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+// output the converted rules
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
+}
+
+// mixin for inline media queries
+@mixin mediaquery($property) {
+  @if $property == high-density {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) { @content; }
+  } @else if $property == medium-density {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) { @content; }
+  }
+}
+
+@mixin active-state-text() {
+  position: relative;
+  top: 1px;
+}
+
+@mixin simple-gradient($from, $to) {
+  background-color: $from;
+  @include filter-gradient($from, $to, vertical);
+  @include background-image(linear-gradient(top, $from 0%, $to 100%));
+}

@@ -1,0 +1,167 @@
+.financial {
+
+  @include element(currency) {
+    font-family: $financial-font;
+  }
+
+  @include element(value) {
+    font-family: $financial-font;
+  }
+}
+
+.financial--inline {
+  display: inline;
+
+  .financial {
+
+    @include element(currency) {
+      clear: none;
+      display: inline;
+    }
+
+    @include element(value) {
+      clear: none;
+      display: inline;
+    }
+  }
+
+  .filter__product__currency__label{
+    font-size: 11px;
+    font-family: "Helvetica Neue";
+    color: #dcdddd;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .currency__label{
+    font-size: 13px;
+    font-family: "Helvetica Neue";
+    color: #dcdddd;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.moreinfo__footer{
+   align-items: center;
+}
+
+.financial--stacked {
+
+  .financial {
+
+    @include element(currency) {
+      clear: both;
+      display: block;
+
+      @include modifier(right) {
+       // float: right;
+      }
+
+      @include modifier(left) {
+       // float: left;
+      }
+    }
+
+    @include element(value) {
+      clear: both;
+      display: block;
+      line-height: $finance-stacked-line-height;
+    }
+  }
+}
+
+/*doc
+---
+title: Financial
+name: 001-atm-002-financial
+category: Atoms - Finacial
+---
+
+Showing financial values. These values can be shown as an `--inline` value or `--stacked`
+
+```html_example
+
+<div class="financial--inline">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">100.00</span>
+</div>
+
+```
+
+```html_example
+
+<div class="financial--stacked">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">100.00</span>
+</div>
+
+```
+
+##Financial value coloring
+
+You may want to use a financial coloring for these values.
+See [the financial coloring documentation] [000-qrk-002-value] for more info.
+
+```html_example
+
+Positive
+<div class="financial--inline financial--positive">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">100.00</span>
+</div>
+
+```
+
+```html_example
+
+No Change
+<div class="financial--inline financial--nochange">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">00.00</span>
+</div>
+
+```
+
+```html_example
+
+Negative
+<div class="financial--inline financial--negative">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">-100.00</span>
+</div>
+
+```
+
+```html_example
+
+Positive
+<div class="financial--stacked financial--positive">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">100.00</span>
+</div>
+
+```
+
+```html_example
+
+No Change
+<div class="financial--stacked financial--nochange">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">00.00</span>
+</div>
+
+```
+
+Negative
+
+```html_example
+
+<div class="financial--stacked financial--negative">
+  <span class="financial__currency">USD</span>
+  <span class="financial__value">-100.00</span>
+</div>
+
+```
+
+*/

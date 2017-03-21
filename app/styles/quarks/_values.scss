@@ -1,0 +1,143 @@
+.financial {
+  @include modifier(negative) {
+    color: $negative-color;
+  }
+
+  @include modifier(positive) {
+    color: $positive-color;
+  }
+
+  @include modifier(nochange) {
+    color: $nochange-color;
+  }
+
+  @include element(currency) {
+    @extend .text--uppercase;
+    font-weight: bolder;
+  }
+}
+
+/*doc
+---
+title: Value
+name: 000-qrk-010-value
+category: Quarks - Values
+---
+
+Showing negative, positive and nochange values. Mainly used in financial applications.
+
+```html_example
+
+Positive: <span class="financial__value financial--positive">100.00</span>
+
+```
+
+```html_example
+
+No Change: <span class="financial__value financial--nochange">00.00</span>
+
+```
+
+```html_example
+
+Negative: <span class="financial__value financial--negative">-80.95</span>
+
+```
+
+```html_example
+
+Normal: <span class="financial__value">-80.95</span>
+
+```
+##Financial Colors
+There are three 3 colors for financial values: positive, negative, nochange, normal (default)
+. Simply apply the type modifier class for the desired color.
+
+Value                                               | Modifier Class
+----------------------------------------------------| -----------------
+<span class="financial--positive">100.00</span>     | `financial--positive`
+<span class="financial--nochange">00.00</span>      | `financial--nochange`
+<span class="financial--negative">-80.95</span>     | `financial--negative`
+<span class="financial__value">80.95</span>         | `financial__value`
+
+*/
+
+.financial--stacked {
+  .financial {
+    @include element(currency) {
+
+      @include modifier(right) {
+
+        @extend .text--uppercase;
+        font-weight: bolder;
+      }
+
+      @include modifier(left) {
+
+        @extend .text--uppercase;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+/*doc
+---
+title: Currency
+name: 000-qrk-011-currency
+category: Quarks - Values
+---
+
+Showing currency label.
+
+```html_example
+
+<span class="financial__currency">USD</span>
+
+```
+
+```html_example
+
+<span class="financial__currency">myr</span>
+
+```
+
+```html_example
+
+<span class="financial__currency">Sgd</span>
+
+```
+##Financial currency
+
+Before modifier  | After applying modifier                     | Modifier Class
+-----------------|---------------------------------------------|----------------
+USD              |<span class="financial__currency">USD</span> | `financial__currency`
+myr              |<span class="financial__currency">myr</span> | `financial__currency`
+Sgd              |<span class="financial__currency">Sgd</span> | `financial__currency`
+
+*/
+
+.text {
+  @include element(character-counter) {
+    @extend .text--uppercase;
+    color: $form-helper-text-color;
+    font-size: small;
+  }
+}
+
+/*doc
+---
+title: Character Counter
+name: 000-qrk-011-value
+category: Quarks - Values
+---
+
+Can be used to style a counter
+
+```html_example
+
+<label class="text__character-counter">0/40</label>
+
+```
+
+*/

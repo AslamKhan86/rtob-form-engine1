@@ -1,0 +1,347 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $custom-font1;
+  font-size: 1.6rem;
+  line-height: 1.625;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.h1,
+h1 {
+  font-size: 3.2rem;
+  line-height: .812;
+}
+
+.h2,
+h2 {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.h3,
+h3 {
+  font-size: 2.2rem;
+  line-height: 1.181;
+}
+
+.h4,
+h4 {
+  font-size: 1.8rem;
+  line-height: 1.444;
+}
+
+.h5,
+h5 {
+  font-size: 1.6rem;
+  line-height: 1.625;
+}
+
+.h6,
+h6 {
+  font-size: 1.4rem;
+  line-height: 1.857;
+}
+
+/*doc
+---
+title: Headings
+name: 000-qrk-005-headings
+category: Quarks - Typography
+---
+
+All HTML headings, `<h1>` through `<h6>`, are available. `.h1` through `.h6` classes (`class="h1"`) are also available, for when you want to match the font styling of a heading but still want your text to be displayed inline.
+
+```html_example
+
+<h1>h1. The quick brown fox jumps over the lazy dog</h1>
+
+<h2>h2. The quick brown fox jumps over the lazy dog</h2>
+
+<h3>h3. The quick brown fox jumps over the lazy dog</h3>
+
+<h4>h4. The quick brown fox jumps over the lazy dog</h4>
+
+<h5>h5. The quick brown fox jumps over the lazy dog</h5>
+
+<h6>h6. The quick brown fox jumps over the lazy dog</h6>
+
+```
+
+*/
+.text {
+
+  @include modifier(small) {
+    color: $dark-color3;
+  }
+
+  @include modifier(smaller) {
+    font-size: $form-label-font-size / 1.2;
+  }
+
+  @include modifier(left) {
+    text-align: left;
+  }
+
+  @include modifier(right) {
+    text-align: right;
+  }
+
+  @include modifier(center) {
+    text-align: center;
+  }
+
+  @include modifier(justify) {
+    text-align: justify;
+  }
+
+  @include modifier(bold) {
+    font-weight: bold;
+  }
+
+  @include modifier(lowercase) {
+    text-transform: lowercase;
+  }
+
+  @include modifier(uppercase) {
+    text-transform: uppercase;
+  }
+
+  @include modifier(capitalize) {
+    text-transform: capitalize;
+  }
+
+  @include modifier(big) {
+    font-size: xx-large;
+  }
+
+  @include modifier(optional) {
+    color: $form-optional-color;
+    font-size: small;
+    text-transform: lowercase;
+  }
+
+  @include modifier(name) {
+    text-transform: capitalize;
+  }
+}
+
+small {
+  color: $dark-color3;
+}
+
+/*doc
+---
+title: Subheader
+name: 000-qrk-006-subheader
+category: Quarks - Typography
+---
+
+Create lighter, secondary text in any heading with a generic `<small>` tag or the `.text--small` class.
+
+```html_example
+
+<h1>h1. The quick brown fox jumps over the lazy dog</h1><small class"subheader">Secondary text</small>
+
+<h2>h2. The quick brown fox jumps over the lazy dog</h2><small class"subheader">Secondary text</small>
+
+<h3>h3. The quick brown fox jumps over the lazy dog</h3><small class"subheader">Secondary text</small>
+
+<h4>h4. The quick brown fox jumps over the lazy dog</h4><small class"subheader">Secondary text</small>
+
+<h5>h5. The quick brown fox jumps over the lazy dog</h5><small class"subheader">Secondary text</small>
+
+<h6>h6. The quick brown fox jumps over the lazy dog</h6><small class"subheader">Secondary text</small>
+
+```
+
+*/
+/*doc
+---
+title: Alignment classes
+name: 000-qrk-007-alignment-class
+category: Quarks - Typography
+---
+
+Realign text to components with text alignment classes.
+
+```html_example
+
+<p class="text--left">Left aligned text.</p>
+<p class="text--right">Right aligned text.</p>
+<p class="text--center">Center aligned text.</p>
+<p class="text--justify">Justify text.</p>
+
+```
+
+*/
+/*doc
+---
+title: Transformation classes
+name: 000-qrk-008-transformation-class
+category: Quarks - Typography
+---
+
+Transform text in components with text capitalization classes.
+
+```html_example
+
+<p class="text--lowercase">Lowercased text.</p>
+<p class="text--uppercase">Uppercased text.</p>
+<p class="text--capitalize">Capitalized text.</p>
+
+```
+
+*/
+/*doc
+---
+title: Statistics
+name: 000-qrk-009-statistics
+category: Quarks - Typography
+---
+
+If you're building a dashboard, you might need to display some important numbers real big. Just add the `.text--big` class to any element to amp up the font size.
+
+```html_example
+
+<p>Amount</p>
+<div class="text--big">100</div>
+
+```
+
+*/
+
+/*doc
+---
+title: Optional
+name: 000-qrk-010-statistics
+category: Quarks - Typography
+---
+
+To mark fields as optional.
+
+```html_example
+
+<span class="text--optional">(Optional)</span>
+
+```
+
+*/
+/*doc
+---
+title: Bold
+name: 000-qrk-011-bold
+category: Quarks - Typography
+---
+
+To mark texts as bold.
+
+```html_example
+
+<span class="text--bold">Jane Doe</span>
+
+```
+
+*/
+
+/*doc
+---
+title: Smaller
+name: 000-qrk-012-smaller
+category: Quarks - Typography
+---
+
+To mark texts as 1.2rd of Form fields.
+
+```html_example
+
+<span class="text--smaller">Jane Doe</span>
+
+```
+
+*/
+/*doc
+---
+title: Names
+name: 000-qrk-013-names
+category: Quarks - Typography
+---
+
+Name
+
+```html_example
+
+<span class="text--name">jane doe</span>
+
+```
+
+*/
+a {
+  color: $link-text;
+
+  &:hover {
+    color: $link-highlight-text;
+  }
+}
+/*doc
+---
+title: Links
+name: 000-qrk-014-links
+category: Quarks - Typography
+---
+
+Links
+
+```html_example
+
+<a href="#">Your Link</a>
+
+```
+
+*/
+
+.send {
+
+  @include modifier(right) {
+    float: right;
+  }
+
+  @include modifier(left) {
+    float: left;
+  }
+}
+
+/*doc
+---
+title: Floats
+name: 000-qrk-015-floats
+category: Quarks - Typography
+---
+
+Float
+
+```html_example
+
+<p><a href="#" class="send--left">Your Link</a></p>
+
+<p><a href="#" class="send--right">Your Link</a></p>
+
+```
+
+*/

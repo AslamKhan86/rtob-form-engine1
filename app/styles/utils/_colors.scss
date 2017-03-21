@@ -1,0 +1,177 @@
+//
+// Colors used in the project
+// File included in variables.scss
+//
+
+//
+// Individual colors
+//
+$dark-color1: #000;
+$dark-color2: #393939;
+$dark-color3: #68737b;
+$dark-color4: #363636;
+$dark-blue-color5: #24282c;
+$black-alpha-light: rgba(255, 255, 255, .1);
+$black-alpha-dark: rgba(0, 0, 0, .25);
+$black-alpha-dark1: rgba(0, 0, 0, .3);
+$black-alpha-dark2: rgba(0, 0, 0, .6);
+$black-alpha-dark3: rgba(0, 0, 0, .16);
+$black-alpha-dark4: rgba(0, 0, 0, .12);
+$black-alpha-dark5: rgba(0, 0, 0, .1);
+$black-alpha-dark6: rgba(0, 0, 0, .7);
+$black-alpha-dark7: rgba(0, 0, 0, .4);
+$black-alpha-dark8: rgba(0, 0, 0, 0);
+$black-alpha-dark9: rgba(0, 0, 0, 1);
+$black-alpha-dark10: rgba(0, 0, 0, .8);
+$black-alpha-dark11: rgba(0, 0, 0, .25);
+$black-alpha-light1: rgba(255, 255, 255, .15);
+$black-alpha-light2: rgba(255, 255, 255, .3);
+$black-alpha-light3: rgba(255, 255, 255, .5);
+$white-alpha-light1: rgba(255, 255, 255, .97);
+$red-alpha-light1: rgba(185, 62, 62, .7);
+$gray-color-alpha1: rgba(93, 104, 112, .7);
+$gray-color-alpha2: rgba(93, 104, 112, .6);
+$green-color: rgb(108, 192, 103);
+$green-color-alpha: rgba(108, 192, 103, 1);
+$green-color-alpha1: rgba(42, 172, 72, 1);
+$blue-color-alpha: rgba(0, 93, 135, 1);
+$blue-color-alpha2: rgba(0, 156, 218, 1);
+$blue-color-alpha3: rgba(0, 114, 170, 1);
+$dark-gray: #68737b;
+$gray2: #b7b7b7;
+$standard-red: #f00;
+
+//
+// Finance
+//
+$finance-currency-color:#000;
+
+//
+// Form
+//
+$form-helper-text-color: #68737b;
+$form-label-color: #000;
+$form-placeholder-color: #d2d2d2;
+$form-optional-color: #bdbdbd;
+
+//
+// Modal Box
+//
+$dark-alpha: rgba(#000, .8);
+
+//
+// Flexible Selector
+//
+$black: #464646;
+$black-alpha: rgba(#000, .12);
+$light-gray: #ccc;
+$gray: #868686;
+$dark-gray: #666;
+$red: #e75854;
+$white: #fafafa;
+$dark-white: #eee;
+$blue-color: #477bc6;
+
+//
+// Link
+//
+
+$link-text: #5382c6;
+$link-highlight-text: #0f0;
+$positive-color: #2aac48;
+
+//$lightest: #fff;
+$light-color1: #fff;
+$light-background1: #f9f9f9;
+$light-background2: #f3f3f3;
+$light-background3: #e3e3e3;
+$light-background4: #f2f2f2;
+$light-background5: #999;
+$separator-border1: #d9d9d9;
+$separator-border2: #dee2e9;
+
+$highlight-background2: #fef8e5;
+
+$current-selection: #fef7d1;
+$yellow-color: #fcd000;
+$yellow-color2: rgba(252, 215, 34, 1);
+$warning-border: #ff9e9b;
+$warning-from: #f68986;
+$warning-to: #e36e69;
+$negative-color: #ba3a38;
+
+$nochange-color: #d7d7d7;
+
+$light-blue: #c4d1da;
+$nav-bar-border1: #7ea1d4;
+$nav-bar-border2: #395494;
+$nav-bar-border3: #3c4f6b;
+$nav-background1: #324059;
+$dark-blue: #213255;
+$dark-blue1: #2a364f;
+$dark-blue2: #313f5d;
+$dark-blue-calendar: $dark-blue;
+$darker-blue: darken($dark-blue, 4%);
+
+//
+// Common
+//
+$main-gradient-from: #5382c6;
+$main-gradient-to: darken($main-gradient-from, 8%);
+$active-main-gradient-from: darken($main-gradient-from, 10%);
+$active-main-gradient-to: darken($main-gradient-to, 15%);
+
+$secondary-gradient-from: $dark-blue;
+$secondary-gradient-to: darken($secondary-gradient-from, 2%);
+
+//
+// Limit Indicator
+//
+
+$limit-indicator-border-color: hsla(0, 0%, 4%, .25);
+
+//
+// Buttons
+//
+$proceed-button-from: #46bf67;
+$proceed-button-to: darken($proceed-button-from, 8%);
+$active-proceed-button-from: darken($proceed-button-from, 10%);
+$active-proceed-button-to: darken($proceed-button-to, 20%);
+
+
+$cancel-button-from: $light-color1;
+$cancel-button-to: #efefef;
+
+$active-cancel-button-from: $light-background2;
+$active-cancel-button-to: $light-background3;
+
+
+//
+// Active states
+//
+$headings-button: $dark-blue;
+$headings-button-active: darken($headings-button, 10%);
+
+// Date Header
+
+$date-header-background: $light-background3;
+$date-header-border-color: $separator-border1;
+$date-content-list-even-color: $light-background2;
+$date-content-list-odd-color: $light-background1;
+
+//
+// Day/Evening/Night background-color
+//
+$day-background-color: #f4f9ff;
+$evening-background-color: #f7e5b5;
+$night-background-color: #4c77a6;
+
+//
+// Diffirent message colors
+//
+
+$success: #2aac48;
+$warning: #ba3a38;
+$information: #5382c6;
+$disabled: #868686;
+$processing: #fcd000;

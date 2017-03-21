@@ -1,0 +1,146 @@
+table {
+  color: $dark-color3;
+  table-layout: fixed;
+  width: 100%;
+
+  .non-formated-content & {
+    font-size: 1.6rem !important;
+  }
+
+  td {
+    &:first-of-type {
+      padding-left: 1rem;
+      text-align: left;
+      width: 58%;
+
+      p:nth-of-type(2) {
+        @include font-size(1.2);
+      }
+      // specific to Indonesia and India
+      .id &,
+      .in & {
+        width: 51%;
+      }
+    }
+
+    &:last-of-type {
+      padding-right: 1rem;
+      text-align: right;
+      width: 42%;
+
+      a {
+        @include font-size(1.4);
+      }
+      // specific to Indonesia and India
+      .id &,
+      .in & {
+        width: 49%;
+      }
+    }
+
+    &.full-line {
+      padding-left: 1.5rem;
+      text-align: left;
+      width: 100% !important;
+    }
+  }
+
+  p,
+  td,
+  th {
+    @extend %text-overflow;
+  }
+
+  tbody {
+    tr {
+      background-color: $light-color1;
+      border-bottom: 1px solid $separator-border1;
+    }
+  }
+}
+
+.list-type-1 {
+  td {
+    padding-bottom: 1.6rem;
+    padding-top: 1.7rem;
+  }
+}
+
+.list-type-2 {
+  td {
+    padding-bottom: 1.4rem;
+    padding-top: 1.5rem;
+  }
+}
+
+.table-header {
+  @extend .font-light;
+  @extend .regular-shadow;
+  @include font-size(1.4);
+  position: relative;
+
+  th {
+    color: $dark-color3;
+    padding: 1.2rem 0;
+  }
+
+  tr {
+    background: $light-color1;
+  }
+}
+
+.with-icon {
+  @extend %clearfix;
+
+  img {
+    float: left;
+    margin: 0 7px 0 0;
+    max-height: 85%;
+  }
+
+  div:first-of-type {
+    margin-left: 3.5rem;
+  }
+}
+
+.with-iconandtext {
+  @extend %clearfix;
+
+  img {
+    float: left;
+    margin: 0 7px 0 0;
+    max-height: 80%;
+    padding: 0 .1em .5em;
+  }
+
+  div:first-of-type {
+    float: left;
+    margin-left: 0;
+  }
+}
+
+.sorter {
+  background-image: none;
+  border-bottom: 1px solid $separator-border1;
+  padding: 6px 1rem;
+
+  .hdg-title {
+    @extend .label-small;
+  }
+
+  &.type-1 {
+    background-color: $dark-blue !important;
+
+    .hdg-title {
+      color: $light-color1;
+    }
+  }
+
+  &.type-2 {
+    background-color: $light-background3 !important;
+
+    .hdg-title {
+      color: $dark-color2;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+//
+// Every modules from 'modules' folder should be included in this file.
+// '_base-styles.scss' is included in main.scss.
+//
+// contains all the base styles using the type selector
+@import 'base';
+// contains all the styles related to container
+@import 'container';
+// contains all the styles related to tables
+@import 'tables';

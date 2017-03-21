@@ -1,0 +1,26 @@
+
+
+/*doc
+---
+title: Breadcrumb
+name: 001-atm-001-breadcrumb
+category: Atoms - Breadcrumb
+---
+
+To highlight a dropdown menu e `class="s-active"`
+
+```html_example
+
+<div class="row">
+        <div class="column">
+        <a href="#" class="button" data-dropdown="drop">Link Dropdown &raquo;</a>
+    <ul id="drop" class="tiny f-dropdown" data-dropdown-content>
+      <li><a href="#">This is a link</a></li>
+      <li><a href="#">This is another</a></li>
+      <li><a href="#">Yet another</a></li>
+    </ul>
+          </div>
+    </div>
+
+```
+*/

@@ -1,0 +1,362 @@
+.non-text-button {
+
+  @extend %hide-text;
+
+  .transparent-button,
+  span {
+    width: 48px;
+  }
+}
+
+.text-button {
+  @extend .font-bold;
+  @extend .label-large;
+
+  color: $light-color1;
+  line-height: 44px;
+  padding: 0 7px;
+  text-shadow: 0 1px 0 $black-alpha-dark2;
+}
+
+.left-action {
+  float: left;
+
+  .nav-bar & {
+    @include double-border($black-alpha-light2, $black-alpha-dark1, right);
+  }
+
+  .headings & {
+    @include double-border($black-alpha-light1, $black-alpha-dark1, right);
+  }
+}
+
+.right-action {
+
+  float: right;
+
+  .nav-bar & {
+
+    @include double-border($black-alpha-dark1, $black-alpha-light2, left);
+  }
+
+  .headings & {
+
+    @include double-border($black-alpha-dark1, $black-alpha-light1, left);
+  }
+}
+
+.nav-bar {
+
+  .non-text-button,
+  .text-button {
+
+    span {
+      line-height: 44px;
+    }
+
+    &:active {
+      @include simple-gradient($active-main-gradient-from, $active-main-gradient-to);
+    }
+  }
+}
+
+.headings {
+
+  .non-text-button,
+  .text-button {
+
+    span {
+      line-height: 48px;
+    }
+
+    &:active {
+      background-color: $headings-button-active;
+    }
+  }
+}
+
+.non-text-button,
+.text-button {
+
+  span {
+    display: block;
+  }
+}
+
+.transparent-button {
+
+  @extend %hide-text;
+
+  border: none !important;
+  cursor: auto;
+  pointer-events: none;
+
+  &::after {
+    border: none !important;
+  }
+}
+
+.access-menu {
+
+  position: relative;
+  z-index: 2;
+
+  span {
+
+  //  @include nav-sprite(nav, $offset-x: 50%, $offset-y: 12px);
+  }
+}
+
+.sms-token .refresh span {
+  line-height: 45px;
+}
+
+.refresh span {
+
+ // @include nav-sprite(refresh, $offset-x: 50%, $offset-y: 10px);
+}
+
+.reload span {
+
+ // @include nav-sprite(reload, $offset-x: 50%, $offset-y: -3px);
+  text-indent: -8000px;
+}
+
+.going-back span {
+
+ // @include nav-sprite(back, $offset-x: 50%, $offset-y: 12px);
+}
+
+.info-icon span {
+
+  //@include nav-sprite(info, $offset-x: 50% , $offset-y: 10px);
+}
+
+.compose-icon span {
+
+ // @include nav-sprite(compose, $offset-x: 50% , $offset-y: 10px);
+}
+
+.logout-icon span {
+
+  //@include nav-sprite(logout, $offset-x: 50% , $offset-y: 10px);
+}
+
+.cross-icon span {
+
+ // @include nav-sprite(cross, $offset-x: 50%, $offset-y: 10px);
+}
+
+.has-icon.unread {
+
+  //@include nav-sprite(unread, $offset-x: 10px, $offset-y: 13px);
+}
+
+.has-icon.read {
+
+  //@include nav-sprite(read, $offset-x: 10px, $offset-y: 13px);
+}
+
+.next span {
+
+ // @include nav-sprite(next, $offset-x: 23px, $offset-y: 17px);
+}
+
+.previous span {
+
+  //@include nav-sprite(previous, $offset-x: 19px, $offset-y: 17px);
+}
+
+.current-location span {
+
+ // @include nav-sprite(current-location, $offset-x: 50%, $offset-y: 10px);
+}
+
+.button-group {
+
+  &.single {
+
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+  }
+
+  .button {
+
+    &:first-child {
+
+      display: inline-block;
+      width: 90%;
+    }
+
+    &.dropdown {
+
+      display: inline-block;
+      margin-left: -1px;
+      width: 10%;
+    }
+  }
+}
+
+.button__wrapper {
+  margin: 0 auto;
+
+  ul {
+    background: $white;
+    border-radius: .2rem;
+    box-shadow: 0 2px 5px 0 $black-alpha-dark3, 0 2px 10px 0 $black-alpha-dark4;
+    -webkit-transition: opacity 250ms ease-in-out, max-height 250ms ease-in-out;
+    transition: opacity 250ms ease-in-out, max-height 250ms ease-in-out;
+
+    a {
+      background-color: $white;
+      color: $dark-gray;
+      padding: 12px;
+
+      &:hover {
+        background-color: $dark-white;
+      }
+    }
+
+    &.menu {
+      border: 1px solid $limit-indicator-border-color;
+      margin: -15px auto 0;
+      text-align: center;
+      width: 90%;
+    }
+  }
+}
+
+.button {
+
+  @extend .font-bold;
+  @extend .label-large;
+  @extend %regular-border-radius;
+
+  color: $light-color1;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 12px 0;
+  text-align: center;
+
+  &.type-1 {
+
+    @extend .label-medium;
+    @include simple-gradient($proceed-button-from, $proceed-button-to);
+
+    border: 1px solid darken($proceed-button-to, 5%);
+
+    &:active {
+
+      @include active-state-text();
+      @include simple-gradient($active-proceed-button-from, $active-proceed-button-to);
+    }
+  }
+
+  &.type-2 {
+
+    @extend .label-medium;
+    @include simple-gradient($main-gradient-from, $main-gradient-to);
+
+    border: 1px solid $active-main-gradient-from;
+
+    &:active {
+      @include active-state-text();
+      @include simple-gradient($main-gradient-to, $secondary-gradient-to);
+    }
+  }
+
+  &.type-3 {
+
+    @extend %light-gradient;
+    @include font-size(1.5);
+
+    border: 1px solid $separator-border1;
+    color: $dark-color3;
+
+    &:active {
+      @include active-state-text();
+      @include simple-gradient($active-cancel-button-from, $active-cancel-button-to);
+    }
+  }
+
+  &.type-4 {
+
+    @include font-size(1.4);
+    @include simple-gradient($proceed-button-from, $proceed-button-to);
+
+    border: 1px solid darken($proceed-button-to, 5%);
+
+    &:active {
+      @include active-state-text();
+      @include simple-gradient($active-cancel-button-from, $active-cancel-button-to);
+    }
+  }
+
+  &.single {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  &.double {
+    float: left;
+    width: 48%;
+
+    &:first-child {
+      margin-right: 2%;
+    }
+
+    &:last-child {
+      margin-left: 2%;
+    }
+  }
+
+}
+
+input {
+
+  &.button {
+    padding: 0;
+  }
+}
+
+.moreinfo__button{
+    font-size: 12px;
+    font-family: "Helvetica Neue";
+    color: #ffffff;
+    outline-color: transparent;
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    height: 10vh;
+    border-top-color: #2f3337;
+    border-top-style: solid;
+    border-top-width: 1px;
+    
+ }
+
+/*doc
+---
+title: Buttons
+name: 000-qrk-001-button
+category: Quarks - Buttons
+---
+
+Button styles can be applied to any element. Typically you'll want
+to use either a `<button>` or an `<a>` element:
+
+```html_example
+
+<input type="submit" class="button spaced type-1 single" value="Type 1">
+<input type="submit" class="button spaced type-3 single" value="Type 3">
+<input type="submit" class="button spaced type-4 single" value="Type 4">
+
+```
+
+If your button is actually a link to another page, please use the
+`<a>` element, while if your button performs an action, such as
+submitting a form or triggering some javascript event, then use a
+`<button>` element.
+
+*/

@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html ng-app="cortana">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Molecules - Form Components</title>
+
+    <!-- Styleguide CSS -->
+    <link rel="stylesheet" href="./theme-build/css/vendors.css">
+    <link rel="stylesheet" href="./theme-build/css/cortana.css">
+
+    <!-- Source CSS -->
+    
+      
+        <link rel="stylesheet" href="../../bower_components/foundation-sites/dist/foundation.css">
+      
+        <link rel="stylesheet" href="../../dist/styleguide/styles/vendor.css">
+      
+        <link rel="stylesheet" href="../../dist/styleguide/styles/main.css">
+      
+    
+
+    <!--[if lt IE 9]>
+      <script src="theme-build/polyfill/html5shiv.js"></script>
+      <script src="theme-build/polyfill/respond.min.js"></script>
+    <![endif]-->
+    <style>
+.cortana-content table{
+  margin: 0px !important;
+}
+.allowselect {
+  -webkit-touch-callout: all !important; /* iOS Safari */
+  -webkit-user-select:  all !important;   /* Chrome/Safari/Opera */
+  -khtml-user-select:  all !important;    /* Konqueror */
+  -moz-user-select:  all !important;      /* Firefox */
+  -ms-user-select:  all !important;       /* IE/Edge */
+  user-select:  all !important;           /* non-prefixed version, currently
+  not supported by any browser */
+}
+    </style>
+</head>
+
+  <body class="cortana-body"  ng-controller="MainController">
+
+    <div class="sb-slidebar sb-left cortana-sidenav sb-style-push">
+
+      
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+          
+        
+      
+        
+        
+      
+
+      <nav class="cortana-nav">
+        <ul>
+          
+            <li><a href="index.html">Home</a></li>
+          
+        </ul>
+        
+          <h3>Atoms</h3>
+          <ul>
+          
+            
+              
+              
+                <li><a href="atoms_-_date_headers.html">Date Headers</a></li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_breadcrumb.html">Breadcrumb</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_tables.html">Tables</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_finacial.html">Finacial</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_text_-_title_and_sub_title.html">Title and Sub Title</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_forms.html">Forms</a></li>
+              
+            
+          
+            
+          
+            
+          
+          </ul>
+        
+          <h3>Quarks</h3>
+          <ul>
+          
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_buttons.html">Buttons</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_images_-_thumbnail.html">Thumbnail</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_typography.html">Typography</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_values.html">Values</a></li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_form_elements.html">Form Elements</a></li>
+              
+            
+          
+          </ul>
+        
+          <h3>Molecules</h3>
+          <ul>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+              
+                <li><a class="active" href="molecules_-_form_components.html">Form Components</a></li>
+              
+            
+          
+            
+          
+          </ul>
+        
+      </nav>
+    </div>
+
+    <header class="cortana-header sb-slide">
+      
+        <h1>Form Components</h1>
+      
+      <div id="open-left" class="cortana-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="cortana-search-wrapper" ng-controller="TypeaheadCtrl">
+        <input id="cortana-search" type="text" class="form-control cortana-search" ng-model="customSelected" placeholder="Search" typeahead="data as data.title for data in searchData | filter:{title:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-on-select="onSelect($item, $model, $label)">
+      </div>
+    </header>
+
+    <div id="sb-site">
+
+      <div class="cortana-container">
+
+        <nav id="cortana-inside-nav" class="cortana-inside-nav" bs-affix>
+          <ul bs-scrollspy-list data-offset="-30">
+            
+              
+                <li><a href="#002-mol-002-flexibleselector">Flexible Selector</a></li>
+              
+            
+          </ul>
+        </nav>
+
+        <div class="cortana-content-wrapper clearfix">
+          <div class="cortana-content">
+<h1 id="002-mol-002-flexibleselector" class="styleguide">Flexible Selector</h1>
+
+<p>Account list display</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<dl class="flexible-selector callout">
+    <dt class="flexible-selector--default">
+    <a>
+      <div class="row expanded">
+        <div class="small-6 columns">
+          <div class="form__label">
+          <label>Current Account</label>
+          <small># 12345678</small>
+          </div>
+        </div>
+        <div class="small-6 columns text--right">
+          <div class="financial--inline">
+          <span class="financial__currency">USD</span>
+          <span class="financial__value">100.00</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </dt>
+    <dd class="flexible-selector__items">
+        <ul>
+            <li>
+                <a>
+                    <div class="row expanded">
+                        <div class="small-6 columns">
+                            <div class="form__label">
+                                <label>Current Account</label>
+                                <small># 12345678</small>
+                            </div>
+                        </div>
+                        <div class="small-6 columns text--right">
+                            <div class="financial--inline">
+                                <span class="financial__currency">USD</span>
+                                <span class="financial__value">100.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="row expanded">
+                        <div class="small-6 columns">
+                            <div class="form__label">
+                                <label>Saving Account</label>
+                                <small># 987563</small>
+                            </div>
+                        </div>
+                        <div class="small-6 columns text--right">
+                            <div class="financial--inline">
+                                <span class="financial__currency">USD</span>
+                                <span class="financial__value">345.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="row expanded">
+                        <div class="small-6 columns">
+                            <div class="form__label">
+                                <label>Shared Account</label>
+                                <small># ********4325</small>
+                            </div>
+                        </div>
+                        <div class="small-6 columns text--right">
+                            <div class="financial--inline">
+                                <span class="financial__currency">INR</span>
+                                <span class="financial__value">50,64,435.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </dd>
+    <input type="hidden" name="accountSelector">
+</dl>
+
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;dl</span> <span class="na">class=</span><span class="s">"flexible-selector callout"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"flexible-selector--default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row expanded"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form__label"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;label&gt;</span>Current Account<span class="nt">&lt;/label&gt;</span>
+          <span class="nt">&lt;small&gt;</span># 12345678<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns text--right"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"financial--inline"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__currency"</span><span class="nt">&gt;</span>USD<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__value"</span><span class="nt">&gt;</span>100.00<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/dt&gt;</span>
+    <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"flexible-selector__items"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row expanded"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form__label"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>Current Account<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;small&gt;</span># 12345678<span class="nt">&lt;/small&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns text--right"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"financial--inline"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__currency"</span><span class="nt">&gt;</span>USD<span class="nt">&lt;/span&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__value"</span><span class="nt">&gt;</span>100.00<span class="nt">&lt;/span&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row expanded"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form__label"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>Saving Account<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;small&gt;</span># 987563<span class="nt">&lt;/small&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns text--right"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"financial--inline"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__currency"</span><span class="nt">&gt;</span>USD<span class="nt">&lt;/span&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__value"</span><span class="nt">&gt;</span>345.00<span class="nt">&lt;/span&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row expanded"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form__label"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label&gt;</span>Shared Account<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;small&gt;</span># ********4325<span class="nt">&lt;/small&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-6 columns text--right"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"financial--inline"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__currency"</span><span class="nt">&gt;</span>INR<span class="nt">&lt;/span&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"financial__value"</span><span class="nt">&gt;</span>50,64,435.00<span class="nt">&lt;/span&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/dd&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"accountSelector"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/dl&gt;</span>
+
+
+</pre></div></div></div><div class="cortana-content">
+        </div>
+      </div>
+    </div>
+
+    <footer class="cortana-footer">
+Version 1.0.1
+    </footer>
+  </div>
+
+  <script src="theme-build/js/vendors.min.js"></script>
+  <script type="text/javascript">
+    var jQuery_no_conflict = $.noConflict(true);
+  </script>
+  <script src="theme-build/js/main.js"></script>
+  <script type="text/javascript">
+
+    angular.module("cortana").controller("TypeaheadCtrl", function($scope) {
+      $scope.selected = undefined;
+      $scope.searchData =
+      [
+        
+          
+            
+              
+              
+              {
+              "title": "Date Headers",
+              "breadcrumb": "Atoms - Date Headers > Date Headers",
+              "path": "atoms_-_date_headers.html#000-atm-002-dateheader"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Buttons",
+              "breadcrumb": "Quarks - Buttons > Buttons",
+              "path": "quarks_-_buttons.html#000-qrk-001-button"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Thumbnail",
+              "breadcrumb": "Quarks - Images - Thumbnail > Thumbnail",
+              "path": "quarks_-_images_-_thumbnail.html#000-qrk-004-thumbnail"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Headings",
+              "breadcrumb": "Quarks - Typography > Headings",
+              "path": "quarks_-_typography.html#000-qrk-005-headings"
+              },
+            
+              
+              
+              {
+              "title": "Subheader",
+              "breadcrumb": "Quarks - Typography > Subheader",
+              "path": "quarks_-_typography.html#000-qrk-006-subheader"
+              },
+            
+              
+              
+              {
+              "title": "Alignment classes",
+              "breadcrumb": "Quarks - Typography > Alignment classes",
+              "path": "quarks_-_typography.html#000-qrk-007-alignment-class"
+              },
+            
+              
+              
+              {
+              "title": "Transformation classes",
+              "breadcrumb": "Quarks - Typography > Transformation classes",
+              "path": "quarks_-_typography.html#000-qrk-008-transformation-class"
+              },
+            
+              
+              
+              {
+              "title": "Statistics",
+              "breadcrumb": "Quarks - Typography > Statistics",
+              "path": "quarks_-_typography.html#000-qrk-009-statistics"
+              },
+            
+              
+              
+              {
+              "title": "Optional",
+              "breadcrumb": "Quarks - Typography > Optional",
+              "path": "quarks_-_typography.html#000-qrk-010-statistics"
+              },
+            
+              
+              
+              {
+              "title": "Bold",
+              "breadcrumb": "Quarks - Typography > Bold",
+              "path": "quarks_-_typography.html#000-qrk-011-bold"
+              },
+            
+              
+              
+              {
+              "title": "Smaller",
+              "breadcrumb": "Quarks - Typography > Smaller",
+              "path": "quarks_-_typography.html#000-qrk-012-smaller"
+              },
+            
+              
+              
+              {
+              "title": "Names",
+              "breadcrumb": "Quarks - Typography > Names",
+              "path": "quarks_-_typography.html#000-qrk-013-names"
+              },
+            
+              
+              
+              {
+              "title": "Links",
+              "breadcrumb": "Quarks - Typography > Links",
+              "path": "quarks_-_typography.html#000-qrk-014-links"
+              },
+            
+              
+              
+              {
+              "title": "Floats",
+              "breadcrumb": "Quarks - Typography > Floats",
+              "path": "quarks_-_typography.html#000-qrk-015-floats"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Value",
+              "breadcrumb": "Quarks - Values > Value",
+              "path": "quarks_-_values.html#000-qrk-010-value"
+              },
+            
+              
+              
+              {
+              "title": "Currency",
+              "breadcrumb": "Quarks - Values > Currency",
+              "path": "quarks_-_values.html#000-qrk-011-currency"
+              },
+            
+              
+              
+              {
+              "title": "Character Counter",
+              "breadcrumb": "Quarks - Values > Character Counter",
+              "path": "quarks_-_values.html#000-qrk-011-value"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Breadcrumb",
+              "breadcrumb": "Atoms - Breadcrumb > Breadcrumb",
+              "path": "atoms_-_breadcrumb.html#001-atm-001-breadcrumb"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Table",
+              "breadcrumb": "Atoms - Tables > Table",
+              "path": "atoms_-_tables.html#001-atm-001-table"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Financial",
+              "breadcrumb": "Atoms - Finacial > Financial",
+              "path": "atoms_-_finacial.html#001-atm-002-financial"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Title and Sub Title",
+              "breadcrumb": "Atoms - Text - Title and Sub Title > Title and Sub Title",
+              "path": "atoms_-_text_-_title_and_sub_title.html#001-atm-004-titlesubtitle"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Form Inputs",
+              "breadcrumb": "Atoms - Forms > Form Inputs",
+              "path": "atoms_-_forms.html#002-atm-003-forminput"
+              },
+            
+              
+              
+              {
+              "title": "Form Inputs &amp; Validations",
+              "breadcrumb": "Atoms - Forms > Form Inputs &amp; Validations",
+              "path": "atoms_-_forms.html#002-atm-003-forminput-validation"
+              },
+            
+              
+              
+              {
+              "title": "Optional Tag for Fields",
+              "breadcrumb": "Atoms - Forms > Optional Tag for Fields",
+              "path": "atoms_-_forms.html#002-atm-004-fieldoptional"
+              },
+            
+              
+              
+              {
+              "title": "Form Label and Value",
+              "breadcrumb": "Atoms - Forms > Form Label and Value",
+              "path": "atoms_-_forms.html#002-atm-004-forminput"
+              },
+            
+              
+              
+              {
+              "title": "Country Code Selector",
+              "breadcrumb": "Atoms - Forms > Country Code Selector",
+              "path": "atoms_-_forms.html#002-atm-005-countrycode"
+              },
+            
+              
+              
+              {
+              "title": "Form Text Area With Counter",
+              "breadcrumb": "Atoms - Forms > Form Text Area With Counter",
+              "path": "atoms_-_forms.html#002-atm-005-forminput"
+              },
+            
+              
+              
+              {
+              "title": "Security Code Input",
+              "breadcrumb": "Atoms - Forms > Security Code Input",
+              "path": "atoms_-_forms.html#002-atm-006-securitycode"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Flexible Selector",
+              "breadcrumb": "Molecules - Form Components > Flexible Selector",
+              "path": "molecules_-_form_components.html#002-mol-002-flexibleselector"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Form Label",
+              "breadcrumb": "Quarks - Form Elements > Form Label",
+              "path": "quarks_-_form_elements.html#002-qrk-002-formlabel"
+              },
+            
+              
+              
+              {
+              "title": "Form Input",
+              "breadcrumb": "Quarks - Form Elements > Form Input",
+              "path": "quarks_-_form_elements.html#002-qrk-003-forminput"
+              },
+            
+          
+        
+      {}];
+      $scope.onSelect = function ($item, $model, $label) {
+        window.location.replace($item.path);
+      };
+    });
+
+  </script>
+  <script type="text/ng-template" id="customTemplate.html">
+    <a href="{{match.model.path}}">
+      <p class="cortana-search-title">{{match.model.title}}</p>
+      <p class="cortana-search-path">{{match.model.breadcrumb}}</p>
+    </a>
+  </script>
+  
+    
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    
+      <script type="text/javascript" src="../doc_assets/ZeroClipboard.min.js"></script>
+    
+      <script type="text/javascript" src="../doc_assets/functions.js"></script>
+    
+  
+  <!-- Source Components -->
+  
+</body>
+</html>

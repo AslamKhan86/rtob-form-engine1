@@ -1,0 +1,53 @@
+
+.application__header {
+
+  @include element(text) {
+
+    @include modifier(no-sub) {
+
+      small {
+        display: none;
+      }
+    }
+
+    h4 {
+      font-family: $standard-chartered-web-primary;
+    }
+
+    small {
+      display: block;
+      font-family: $standard-chartered-web-secondary;
+      font-size: 80%;
+      line-height: $form-label-helper-line-height;
+    }
+  }
+}
+
+/*doc
+---
+title: Title and Sub Title
+name: 001-atm-004-titlesubtitle
+category: Atoms - Text - Title and Sub Title
+---
+
+Create application heading using Header and secondary text with a generic `<small>` tag or the `.text--small` class.
+
+```html_example
+
+<div class="application__header__text">
+  <h4>Beneficiary</h4>
+  <small>whom would you like to transfer to?</small>
+</div>
+
+```
+
+```html_example
+
+<div class="application__header__text--no-sub">
+  <h4>Beneficiary</h4>
+  <small>whom would you like to transfer to?</small>
+</div>
+
+```
+
+*/

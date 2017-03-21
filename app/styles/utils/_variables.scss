@@ -1,0 +1,128 @@
+@import 'colors';
+//
+// Variables used in the project
+// File included in main.scss
+//
+
+// Fonts
+$custom-font1: HelveticaNeueLight;
+$financial-font: HelveticaNeueLight;
+$standard-chartered-web-primary:'SC Sans Web', Arial, sans-serif;
+$standard-chartered-web-secondary:'SC Sans Web', Helvetica , Arial, sans-serif;
+
+//
+// Panels
+//
+$panel-shadow-offset-x: 0;
+$panel-shadow-offset-y: 2px;
+$panel-shadow-blur-radius: 2px;
+$panel-shadow-spread-radius: -2px;
+$panel-shadow-color: $light-background5;
+$panel-shadow-string: $panel-shadow-offset-x $panel-shadow-offset-y $panel-shadow-blur-radius $panel-shadow-spread-radius $panel-shadow-color;
+$panel-border: 1px solid $light-background4;
+$panel-width: 90%;
+$panel-error-alignment:center;
+
+//
+// Widths
+//
+$nav-width: 268px;
+$user-space-width: 215px;
+$user-logout-width: $user-space-width - $nav-width;
+$application-icon: 64px;
+
+//
+// Paddings between elements
+//
+$element-padding: 5px;
+
+//
+// Border Styling
+//
+$border-style:solid;
+$border-thickness:1px;
+$border-notification-thickness: $border-thickness * 5;
+
+//
+// Form
+//
+$form-fields-padding:.75rem 1rem;
+$form-label-helper-line-height: 2.5rem;
+$form-label-font-size: 1.6rem;
+$form-label-helper-font-size: 1.2rem;
+$form-label-helper-line-height: 1.5rem;
+$form-label-helper-margin-top:0;
+$form-label-margin-bottom:5px;
+$form-input-height:4rem;
+$form-input-font-size: 1.75rem;
+$form-textarea-character-counter-margin-top: $form-label-helper-margin-top * 1.5;
+$form-field-optional-left-padding: $form-label-margin-bottom / 2;
+$form-placeholder-top-padding:.25rem;
+$form-input-icon-font-size: 1.65em;
+$form-input-icon-top-margin: -45px;
+$form-input-icon-right-margin: 10px;
+
+//
+// Alert Warnings
+//
+$form-filed-validation-spacing: -11px;
+$form-filed-validation-font-size: small;
+$form-filed-validation-margin:0;
+
+//
+// Loading
+//
+$form-loading-box-size: 80px;
+$form-loading-center: 50%;
+
+//
+// Modal Box
+//
+$form-modalbox-width: 90%;
+$form-modalbox-z-index: 9999;
+$form-modalbox-spaced: 50px;
+
+//
+// Tabs
+//
+$tabs-button-padding: 10px;
+$tabs-button-active-border: 1px solid $dark-blue-calendar;
+$tabs-button-border: 1px solid $dark-gray;
+$tab-button-font-size: $form-label-helper-font-size;
+
+//
+// Date Header Group
+//
+$date-header-border: 1px solid $date-header-border-color;
+$date-header-padding: 5px;
+$date-group-list-close-button-top: 2rem;
+$date-group-list-status-size: 1.2rem;
+
+//
+// Flexible Selector
+//
+$anim: 250ms ease-in-out;
+$triangle-size: .6rem;
+$triangle-ratio: 1;
+$border-radius: .2rem;
+
+//
+// Limit Indicator
+//
+$limit-indicator-bottom-padding: -5px;
+$limit-indicator-footer-padding: 1rem;
+
+//
+// Finance
+//
+$finance-stacked-line-height: .25;
+
+//
+// Durantion
+//
+$slide-nav-duration: .25s;
+
+//
+// Values
+//
+$height-navbar: 44px;

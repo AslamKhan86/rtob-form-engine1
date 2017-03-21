@@ -1,0 +1,422 @@
+.form {
+
+  @include element(loading) {
+    //align-items: center;
+    background-color: $white-alpha-light1;
+    //display: flex;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    //justify-content: center;
+    //position: absolute;
+    width: 100%;
+    z-index: 9999;
+
+    i {
+
+      left: $form-loading-center;
+      margin-left: -($form-loading-box-size / 2);
+      margin-top: -($form-loading-box-size / 2);
+      position: fixed;
+      top: $form-loading-center;
+    }
+  }
+
+  @include element(input) {
+
+    @include element(icon) {
+
+      @include modifier(show) {
+
+        float: right;
+        margin-right: $form-input-icon-right-margin;
+        position: relative;
+        top: $form-input-icon-top-margin;
+
+      }
+    }
+
+    textarea + .text__character-counter {
+      margin-top: $form-textarea-character-counter-margin-top;
+    }
+  }
+
+  @include element(label) {
+
+    label {
+
+      .text--optional {
+        padding-left: $form-field-optional-left-padding;
+      }
+    }
+  }
+
+  @include element(field) {
+    padding: $form-fields-padding;
+
+    @include modifier(has-separator) {
+      border-bottom-color: $separator-border1;
+      border-bottom-style: $border-style;
+      border-bottom-width: $border-thickness;
+      padding: $form-fields-padding;
+    }
+
+    @include modifier(hidden) {
+      display: none;
+    }
+  }
+
+  @include element(group) {
+    @include element(label) {
+      margin-bottom: $form-label-margin-bottom;
+
+      @include modifier(no-helper) {
+        margin-bottom: $form-label-margin-bottom;
+
+        label {
+          color: $form-label-color;
+          font-size: $form-label-font-size;
+         }
+
+        small {
+          display: none;
+         }
+       }
+
+      label {
+        color: $form-label-color;
+        font-size: $form-label-font-size;
+      }
+
+      small {
+        color: $form-helper-text-color;
+        display: block;
+        font-size: $form-label-helper-font-size;
+        font-style: italic;
+        margin-top: $form-label-helper-margin-top;
+      }
+    }
+  }
+}
+
+/*doc
+---
+title: Form Inputs
+name: 002-atm-003-forminput
+category: Atoms - Forms
+---
+
+```html_example
+<div class="row expanded">
+  <div class="small-12 columns">
+    <div class="form__group">
+        <div class="form__label">
+          <label>Name</label>
+          <small>(Example: John Doe)</small>
+        </div>
+        <div class="form__input">
+          <input type="text" placeholder="Cellphone">
+        </div>
+    </div>
+  </div>
+</div>
+
+```
+
+```html_example
+<div class="row expanded">
+  <div class="small-12 columns">
+    <div class="form__group">
+        <div class="form__label">
+          <label>Name</label>
+          <small>(Example: John Doe)</small>
+        </div>
+        <div class="form__input">
+          <input type="text" placeholder="Name"/>
+          <a class="form__input__icon--show"><i class="fa fa-book">[]</i></a>
+        </div>
+    </div>
+  </div>
+</div>
+
+```
+
+```html_example
+<div class="row expanded">
+  <div class="small-12 columns">
+    <div class="form__group">
+      <div class="form__loading">
+        <i class="fa fa-spinner fa-spin fa-5x"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+```
+
+
+*/
+
+.application {
+  @include element(text) {
+
+    @include modifier(success) {
+      @include side-border($success, $border-notification-thickness);
+    }
+
+    @include modifier(warning) {
+      @include side-border($warning, $border-notification-thickness);
+    }
+
+    @include modifier(processing) {
+      @include side-border($processing, $border-notification-thickness);
+    }
+
+    @include modifier(information) {
+      @include side-border($information, $border-notification-thickness);
+    }
+
+    @include modifier(disabled) {
+      @include side-border($disabled, $border-notification-thickness);
+    }
+
+    small {
+      display: block;
+    }
+
+  }
+
+}
+
+/*doc
+---
+title: Form Label and Value
+name: 002-atm-004-forminput
+category: Atoms - Forms
+---
+
+```html_example
+
+<div class="application__text">
+    <label>Main Label</label>
+    <small>Value</small>
+</div>
+
+```
+
+```html_example
+
+<div class="application__text--success">
+    <label>Main Label</label>
+    <small>Value</small>
+</div>
+
+```
+
+```html_example
+
+<div class="application__text--warning">
+    <label>Main Label</label>
+    <small>Value</small>
+</div>
+
+```
+
+```html_example
+
+<div class="application__text--processing">
+    <label>Main Label</label>
+    <small>Value</small>
+</div>
+
+```
+
+```html_example
+
+<div class="application__text--information">
+    <label>Main Label</label>
+    <small>Value</small>
+</div>
+
+```
+
+```html_example
+
+<div class="application__text--disabled">
+    <label>Main Label</label>
+    <small>Value</small>
+</div>
+
+```
+*/
+/*doc
+---
+title: Form Inputs & Validations
+name: 002-atm-003-forminput-validation
+category: Atoms - Forms
+---
+
+```html_example
+<div class="row expanded">
+  <div class="small-12 columns">
+    <div class="form__group">
+        <div class="form__label">
+          <label>Name</label>
+          <small>(Example: John Doe)</small>
+        </div>
+        <div class="form__input">
+          <input type="text" placeholder="Cellphone">
+        </div>
+        <div class="alert callout" data-closable>
+          <h5>This is Required!</h5>
+          <p>You need to provide a Name</p>
+          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    </div>
+  </div>
+</div>
+
+```
+
+*/
+
+/*doc
+---
+title: Form Text Area With Counter
+name: 002-atm-005-forminput
+category: Atoms - Forms
+---
+
+`<textarea>` with character counter.
+
+```html_example
+
+<div class="form__input">
+  <textarea placeholder="Message"></textarea>
+  <label class="float-right text__character-counter">0/40</label>
+</div>
+
+```
+
+*/
+/*doc
+---
+title: Optional Tag for Fields
+name: 002-atm-004-fieldoptional
+category: Atoms - Forms
+---
+
+```html_example
+
+<div class="form__group">
+    <div class="form__label">
+      <label>Message<span class="text--optional">(Optional)</span></label>
+    </div>
+</div>
+
+```
+
+*/
+/*doc
+---
+title: Country Code Selector
+name: 002-atm-005-countrycode
+category: Atoms - Forms
+---
+
+any `<input>` element with an attribute of `type="tel"` will be rendered as a country selector dropdown list.
+
+```html_example
+
+<div class="form__group">
+  <div class="form__input">
+    <input type="tel" id="phone" placeholder="Cellphone">
+  </div>
+</div>
+
+```
+
+*/
+ul {
+
+  &.security_group {
+    padding: $form-fields-padding;
+
+    li {
+      float: left;
+      padding-right: 2%;
+      width: 15.28%;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &.divider {
+        text-align: center;
+        width: 5%;
+      }
+    }
+
+    [type=color],
+    [type=date],
+    [type=datetime-local],
+    [type=datetime],
+    [type=email],
+    [type=month],
+    [type=number],
+    [type=password],
+    [type=search],
+    [type=tel],
+    [type=text],
+    [type=text],
+    [type=time],
+    [type=url],
+    [type=week],
+    select {
+      font-size: $form-input-font-size;
+      height: $form-input-height;
+      text-align: center;
+
+      @include placeholder {
+        color: $form-placeholder-color;
+        font-size: $form-input-font-size * (2 / 3);
+        font-style: italic;
+        padding-top: $form-placeholder-top-padding;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/*doc
+---
+title: Security Code Input
+name: 002-atm-006-securitycode
+category: Atoms - Forms
+---
+
+Security element is used to show 6 digit input box
+
+```html_example
+
+<div class="form__group">
+  <div class="form__input">
+      <ul class="security_group clearfix">
+        <li><input type="number" min="0" max="9" placeholder="0"></li>
+        <li><input type="number" min="0" max="9" placeholder="0"></li>
+        <li><input type="number" min="0" max="9" placeholder="0"></li>
+        <li class="divider">-</li>
+        <li><input type="number" min="0" max="9" placeholder="0"></li>
+        <li><input type="number" min="0" max="9" placeholder="0"></li>
+        <li><input type="number" min="0" max="9" placeholder="0"></li>
+      </ul>
+  </div>
+</div>
+
+```
+
+*/

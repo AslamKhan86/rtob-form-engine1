@@ -1,0 +1,23 @@
+// to add the variables
+@import 'variables';
+
+// custom mixin
+@import 'mixin';
+
+// makes the use of @font-face easier
+@import 'fonts';
+
+// makes the use of @font-face easier
+@import 'colors';
+
+// // sprites declaration
+// @import 'sprites/low-res/sprites';
+
+// to create the transition
+@import 'transitions';
+
+// to create the transition
+@import 'placeholders';
+
+// to create the media queries
+@import 'media-query';

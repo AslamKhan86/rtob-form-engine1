@@ -1,0 +1,14 @@
+//
+// Every quark from 'quarks' folder should be included in this file.
+// '_base-styles.scss' is included in main.scss.
+//
+// contains all the styles related to the buttons
+@import 'buttons';
+// contains all the styles related to the thumbnail
+@import 'thumbnail';
+// contains all the styles related to Typography
+@import 'typography';
+// contains all the styles related to Finance
+@import 'values';
+// contains all styles related to the Forms
+@import 'form';

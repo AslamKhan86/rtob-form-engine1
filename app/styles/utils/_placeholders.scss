@@ -1,0 +1,18 @@
+%main-gradient { @include simple-gradient($main-gradient-from, $main-gradient-to); }
+
+%light-gradient { @include simple-gradient($cancel-button-from, $cancel-button-to); }
+
+%underlined-border { @include double-border($black-alpha-light, $black-alpha-dark, bottom); }
+
+%hide-text { @include hide-text(); }
+
+%regular-border-radius { @include border-radius(2px); }
+
+%clearfix { @include clearfix(); }
+
+%text-overflow { @include text-overflow(); }
+
+
+.checked {
+  background-color: $standard-red;
+}

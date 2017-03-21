@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+<html ng-app="cortana">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quarks - Typography</title>
+
+    <!-- Styleguide CSS -->
+    <link rel="stylesheet" href="./theme-build/css/vendors.css">
+    <link rel="stylesheet" href="./theme-build/css/cortana.css">
+
+    <!-- Source CSS -->
+    
+      
+        <link rel="stylesheet" href="../../bower_components/foundation-sites/dist/foundation.css">
+      
+        <link rel="stylesheet" href="../../dist/styleguide/styles/vendor.css">
+      
+        <link rel="stylesheet" href="../../dist/styleguide/styles/main.css">
+      
+    
+
+    <!--[if lt IE 9]>
+      <script src="theme-build/polyfill/html5shiv.js"></script>
+      <script src="theme-build/polyfill/respond.min.js"></script>
+    <![endif]-->
+    <style>
+.cortana-content table{
+  margin: 0px !important;
+}
+.allowselect {
+  -webkit-touch-callout: all !important; /* iOS Safari */
+  -webkit-user-select:  all !important;   /* Chrome/Safari/Opera */
+  -khtml-user-select:  all !important;    /* Konqueror */
+  -moz-user-select:  all !important;      /* Firefox */
+  -ms-user-select:  all !important;       /* IE/Edge */
+  user-select:  all !important;           /* non-prefixed version, currently
+  not supported by any browser */
+}
+    </style>
+</head>
+
+  <body class="cortana-body"  ng-controller="MainController">
+
+    <div class="sb-slidebar sb-left cortana-sidenav sb-style-push">
+
+      
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+          
+        
+      
+        
+        
+      
+
+      <nav class="cortana-nav">
+        <ul>
+          
+            <li><a href="index.html">Home</a></li>
+          
+        </ul>
+        
+          <h3>Atoms</h3>
+          <ul>
+          
+            
+              
+              
+                <li><a href="atoms_-_date_headers.html">Date Headers</a></li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_breadcrumb.html">Breadcrumb</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_tables.html">Tables</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_finacial.html">Finacial</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_text_-_title_and_sub_title.html">Title and Sub Title</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="atoms_-_forms.html">Forms</a></li>
+              
+            
+          
+            
+          
+            
+          
+          </ul>
+        
+          <h3>Quarks</h3>
+          <ul>
+          
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_buttons.html">Buttons</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_images_-_thumbnail.html">Thumbnail</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a class="active" href="quarks_-_typography.html">Typography</a></li>
+              
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_values.html">Values</a></li>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+              
+                <li><a href="quarks_-_form_elements.html">Form Elements</a></li>
+              
+            
+          
+          </ul>
+        
+          <h3>Molecules</h3>
+          <ul>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+              
+                <li><a href="molecules_-_form_components.html">Form Components</a></li>
+              
+            
+          
+            
+          
+          </ul>
+        
+      </nav>
+    </div>
+
+    <header class="cortana-header sb-slide">
+      
+        <h1>Typography</h1>
+      
+      <div id="open-left" class="cortana-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="cortana-search-wrapper" ng-controller="TypeaheadCtrl">
+        <input id="cortana-search" type="text" class="form-control cortana-search" ng-model="customSelected" placeholder="Search" typeahead="data as data.title for data in searchData | filter:{title:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-on-select="onSelect($item, $model, $label)">
+      </div>
+    </header>
+
+    <div id="sb-site">
+
+      <div class="cortana-container">
+
+        <nav id="cortana-inside-nav" class="cortana-inside-nav" bs-affix>
+          <ul bs-scrollspy-list data-offset="-30">
+            
+              
+                <li><a href="#000-qrk-005-headings">Headings</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-006-subheader">Subheader</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-007-alignment-class">Alignment classes</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-008-transformation-class">Transformation classes</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-009-statistics">Statistics</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-010-statistics">Optional</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-011-bold">Bold</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-012-smaller">Smaller</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-013-names">Names</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-014-links">Links</a></li>
+              
+            
+              
+                <li><a href="#000-qrk-015-floats">Floats</a></li>
+              
+            
+          </ul>
+        </nav>
+
+        <div class="cortana-content-wrapper clearfix">
+          <div class="cortana-content">
+<h1 id="000-qrk-005-headings" class="styleguide">Headings</h1>
+
+<p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available. <code>.h1</code> through <code>.h6</code> classes (<code>class=&quot;h1&quot;</code>) are also available, for when you want to match the font styling of a heading but still want your text to be displayed inline.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<h1>h1. The quick brown fox jumps over the lazy dog</h1>
+
+<h2>h2. The quick brown fox jumps over the lazy dog</h2>
+
+<h3>h3. The quick brown fox jumps over the lazy dog</h3>
+
+<h4>h4. The quick brown fox jumps over the lazy dog</h4>
+
+<h5>h5. The quick brown fox jumps over the lazy dog</h5>
+
+<h6>h6. The quick brown fox jumps over the lazy dog</h6>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;h1&gt;</span>h1. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>h2. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>h3. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h3&gt;</span>
+
+<span class="nt">&lt;h4&gt;</span>h4. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h4&gt;</span>
+
+<span class="nt">&lt;h5&gt;</span>h5. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h5&gt;</span>
+
+<span class="nt">&lt;h6&gt;</span>h6. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h6&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-006-subheader" class="styleguide">Subheader</h1>
+
+<p>Create lighter, secondary text in any heading with a generic <code>&lt;small&gt;</code> tag or the <code>.text--small</code> class.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<h1>h1. The quick brown fox jumps over the lazy dog</h1><small class"subheader">Secondary text</small>
+
+<h2>h2. The quick brown fox jumps over the lazy dog</h2><small class"subheader">Secondary text</small>
+
+<h3>h3. The quick brown fox jumps over the lazy dog</h3><small class"subheader">Secondary text</small>
+
+<h4>h4. The quick brown fox jumps over the lazy dog</h4><small class"subheader">Secondary text</small>
+
+<h5>h5. The quick brown fox jumps over the lazy dog</h5><small class"subheader">Secondary text</small>
+
+<h6>h6. The quick brown fox jumps over the lazy dog</h6><small class"subheader">Secondary text</small>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;h1&gt;</span>h1. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h1&gt;&lt;small</span> <span class="na">class</span><span class="err">"</span><span class="na">subheader</span><span class="err">"</span><span class="nt">&gt;</span>Secondary text<span class="nt">&lt;/small&gt;</span>
+
+<span class="nt">&lt;h2&gt;</span>h2. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h2&gt;&lt;small</span> <span class="na">class</span><span class="err">"</span><span class="na">subheader</span><span class="err">"</span><span class="nt">&gt;</span>Secondary text<span class="nt">&lt;/small&gt;</span>
+
+<span class="nt">&lt;h3&gt;</span>h3. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h3&gt;&lt;small</span> <span class="na">class</span><span class="err">"</span><span class="na">subheader</span><span class="err">"</span><span class="nt">&gt;</span>Secondary text<span class="nt">&lt;/small&gt;</span>
+
+<span class="nt">&lt;h4&gt;</span>h4. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h4&gt;&lt;small</span> <span class="na">class</span><span class="err">"</span><span class="na">subheader</span><span class="err">"</span><span class="nt">&gt;</span>Secondary text<span class="nt">&lt;/small&gt;</span>
+
+<span class="nt">&lt;h5&gt;</span>h5. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h5&gt;&lt;small</span> <span class="na">class</span><span class="err">"</span><span class="na">subheader</span><span class="err">"</span><span class="nt">&gt;</span>Secondary text<span class="nt">&lt;/small&gt;</span>
+
+<span class="nt">&lt;h6&gt;</span>h6. The quick brown fox jumps over the lazy dog<span class="nt">&lt;/h6&gt;&lt;small</span> <span class="na">class</span><span class="err">"</span><span class="na">subheader</span><span class="err">"</span><span class="nt">&gt;</span>Secondary text<span class="nt">&lt;/small&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-007-alignment-class" class="styleguide">Alignment classes</h1>
+
+<p>Realign text to components with text alignment classes.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<p class="text--left">Left aligned text.</p>
+<p class="text--right">Right aligned text.</p>
+<p class="text--center">Center aligned text.</p>
+<p class="text--justify">Justify text.</p>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--left"</span><span class="nt">&gt;</span>Left aligned text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--right"</span><span class="nt">&gt;</span>Right aligned text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--center"</span><span class="nt">&gt;</span>Center aligned text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--justify"</span><span class="nt">&gt;</span>Justify text.<span class="nt">&lt;/p&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-008-transformation-class" class="styleguide">Transformation classes</h1>
+
+<p>Transform text in components with text capitalization classes.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<p class="text--lowercase">Lowercased text.</p>
+<p class="text--uppercase">Uppercased text.</p>
+<p class="text--capitalize">Capitalized text.</p>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--lowercase"</span><span class="nt">&gt;</span>Lowercased text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--uppercase"</span><span class="nt">&gt;</span>Uppercased text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text--capitalize"</span><span class="nt">&gt;</span>Capitalized text.<span class="nt">&lt;/p&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-009-statistics" class="styleguide">Statistics</h1>
+
+<p>If you&#39;re building a dashboard, you might need to display some important numbers real big. Just add the <code>.text--big</code> class to any element to amp up the font size.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<p>Amount</p>
+<div class="text--big">100</div>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;p&gt;</span>Amount<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text--big"</span><span class="nt">&gt;</span>100<span class="nt">&lt;/div&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-010-statistics" class="styleguide">Optional</h1>
+
+<p>To mark fields as optional.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<span class="text--optional">(Optional)</span>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text--optional"</span><span class="nt">&gt;</span>(Optional)<span class="nt">&lt;/span&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-011-bold" class="styleguide">Bold</h1>
+
+<p>To mark texts as bold.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<span class="text--bold">Jane Doe</span>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text--bold"</span><span class="nt">&gt;</span>Jane Doe<span class="nt">&lt;/span&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-012-smaller" class="styleguide">Smaller</h1>
+
+<p>To mark texts as 1.2rd of Form fields.</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<span class="text--smaller">Jane Doe</span>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text--smaller"</span><span class="nt">&gt;</span>Jane Doe<span class="nt">&lt;/span&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-013-names" class="styleguide">Names</h1>
+
+<p>Name</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<span class="text--name">jane doe</span>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text--name"</span><span class="nt">&gt;</span>jane doe<span class="nt">&lt;/span&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-014-links" class="styleguide">Links</h1>
+
+<p>Links</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<a href="#">Your Link</a>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Your Link<span class="nt">&lt;/a&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+<h1 id="000-qrk-015-floats" class="styleguide">Floats</h1>
+
+<p>Float</p>
+</div><div class="codeExample"><div class="exampleOutput">
+<p><a href="#" class="send--left">Your Link</a></p>
+
+<p><a href="#" class="send--right">Your Link</a></p>
+
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"send--left"</span><span class="nt">&gt;</span>Your Link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"send--right"</span><span class="nt">&gt;</span>Your Link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+
+</pre></div></div></div><div class="cortana-content">
+        </div>
+      </div>
+    </div>
+
+    <footer class="cortana-footer">
+Version 1.0.1
+    </footer>
+  </div>
+
+  <script src="theme-build/js/vendors.min.js"></script>
+  <script type="text/javascript">
+    var jQuery_no_conflict = $.noConflict(true);
+  </script>
+  <script src="theme-build/js/main.js"></script>
+  <script type="text/javascript">
+
+    angular.module("cortana").controller("TypeaheadCtrl", function($scope) {
+      $scope.selected = undefined;
+      $scope.searchData =
+      [
+        
+          
+            
+              
+              
+              {
+              "title": "Date Headers",
+              "breadcrumb": "Atoms - Date Headers > Date Headers",
+              "path": "atoms_-_date_headers.html#000-atm-002-dateheader"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Buttons",
+              "breadcrumb": "Quarks - Buttons > Buttons",
+              "path": "quarks_-_buttons.html#000-qrk-001-button"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Thumbnail",
+              "breadcrumb": "Quarks - Images - Thumbnail > Thumbnail",
+              "path": "quarks_-_images_-_thumbnail.html#000-qrk-004-thumbnail"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Headings",
+              "breadcrumb": "Quarks - Typography > Headings",
+              "path": "quarks_-_typography.html#000-qrk-005-headings"
+              },
+            
+              
+              
+              {
+              "title": "Subheader",
+              "breadcrumb": "Quarks - Typography > Subheader",
+              "path": "quarks_-_typography.html#000-qrk-006-subheader"
+              },
+            
+              
+              
+              {
+              "title": "Alignment classes",
+              "breadcrumb": "Quarks - Typography > Alignment classes",
+              "path": "quarks_-_typography.html#000-qrk-007-alignment-class"
+              },
+            
+              
+              
+              {
+              "title": "Transformation classes",
+              "breadcrumb": "Quarks - Typography > Transformation classes",
+              "path": "quarks_-_typography.html#000-qrk-008-transformation-class"
+              },
+            
+              
+              
+              {
+              "title": "Statistics",
+              "breadcrumb": "Quarks - Typography > Statistics",
+              "path": "quarks_-_typography.html#000-qrk-009-statistics"
+              },
+            
+              
+              
+              {
+              "title": "Optional",
+              "breadcrumb": "Quarks - Typography > Optional",
+              "path": "quarks_-_typography.html#000-qrk-010-statistics"
+              },
+            
+              
+              
+              {
+              "title": "Bold",
+              "breadcrumb": "Quarks - Typography > Bold",
+              "path": "quarks_-_typography.html#000-qrk-011-bold"
+              },
+            
+              
+              
+              {
+              "title": "Smaller",
+              "breadcrumb": "Quarks - Typography > Smaller",
+              "path": "quarks_-_typography.html#000-qrk-012-smaller"
+              },
+            
+              
+              
+              {
+              "title": "Names",
+              "breadcrumb": "Quarks - Typography > Names",
+              "path": "quarks_-_typography.html#000-qrk-013-names"
+              },
+            
+              
+              
+              {
+              "title": "Links",
+              "breadcrumb": "Quarks - Typography > Links",
+              "path": "quarks_-_typography.html#000-qrk-014-links"
+              },
+            
+              
+              
+              {
+              "title": "Floats",
+              "breadcrumb": "Quarks - Typography > Floats",
+              "path": "quarks_-_typography.html#000-qrk-015-floats"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Value",
+              "breadcrumb": "Quarks - Values > Value",
+              "path": "quarks_-_values.html#000-qrk-010-value"
+              },
+            
+              
+              
+              {
+              "title": "Currency",
+              "breadcrumb": "Quarks - Values > Currency",
+              "path": "quarks_-_values.html#000-qrk-011-currency"
+              },
+            
+              
+              
+              {
+              "title": "Character Counter",
+              "breadcrumb": "Quarks - Values > Character Counter",
+              "path": "quarks_-_values.html#000-qrk-011-value"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Breadcrumb",
+              "breadcrumb": "Atoms - Breadcrumb > Breadcrumb",
+              "path": "atoms_-_breadcrumb.html#001-atm-001-breadcrumb"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Table",
+              "breadcrumb": "Atoms - Tables > Table",
+              "path": "atoms_-_tables.html#001-atm-001-table"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Financial",
+              "breadcrumb": "Atoms - Finacial > Financial",
+              "path": "atoms_-_finacial.html#001-atm-002-financial"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Title and Sub Title",
+              "breadcrumb": "Atoms - Text - Title and Sub Title > Title and Sub Title",
+              "path": "atoms_-_text_-_title_and_sub_title.html#001-atm-004-titlesubtitle"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Form Inputs",
+              "breadcrumb": "Atoms - Forms > Form Inputs",
+              "path": "atoms_-_forms.html#002-atm-003-forminput"
+              },
+            
+              
+              
+              {
+              "title": "Form Inputs &amp; Validations",
+              "breadcrumb": "Atoms - Forms > Form Inputs &amp; Validations",
+              "path": "atoms_-_forms.html#002-atm-003-forminput-validation"
+              },
+            
+              
+              
+              {
+              "title": "Optional Tag for Fields",
+              "breadcrumb": "Atoms - Forms > Optional Tag for Fields",
+              "path": "atoms_-_forms.html#002-atm-004-fieldoptional"
+              },
+            
+              
+              
+              {
+              "title": "Form Label and Value",
+              "breadcrumb": "Atoms - Forms > Form Label and Value",
+              "path": "atoms_-_forms.html#002-atm-004-forminput"
+              },
+            
+              
+              
+              {
+              "title": "Country Code Selector",
+              "breadcrumb": "Atoms - Forms > Country Code Selector",
+              "path": "atoms_-_forms.html#002-atm-005-countrycode"
+              },
+            
+              
+              
+              {
+              "title": "Form Text Area With Counter",
+              "breadcrumb": "Atoms - Forms > Form Text Area With Counter",
+              "path": "atoms_-_forms.html#002-atm-005-forminput"
+              },
+            
+              
+              
+              {
+              "title": "Security Code Input",
+              "breadcrumb": "Atoms - Forms > Security Code Input",
+              "path": "atoms_-_forms.html#002-atm-006-securitycode"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Flexible Selector",
+              "breadcrumb": "Molecules - Form Components > Flexible Selector",
+              "path": "molecules_-_form_components.html#002-mol-002-flexibleselector"
+              },
+            
+          
+        
+          
+            
+              
+              
+              {
+              "title": "Form Label",
+              "breadcrumb": "Quarks - Form Elements > Form Label",
+              "path": "quarks_-_form_elements.html#002-qrk-002-formlabel"
+              },
+            
+              
+              
+              {
+              "title": "Form Input",
+              "breadcrumb": "Quarks - Form Elements > Form Input",
+              "path": "quarks_-_form_elements.html#002-qrk-003-forminput"
+              },
+            
+          
+        
+      {}];
+      $scope.onSelect = function ($item, $model, $label) {
+        window.location.replace($item.path);
+      };
+    });
+
+  </script>
+  <script type="text/ng-template" id="customTemplate.html">
+    <a href="{{match.model.path}}">
+      <p class="cortana-search-title">{{match.model.title}}</p>
+      <p class="cortana-search-path">{{match.model.breadcrumb}}</p>
+    </a>
+  </script>
+  
+    
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    
+      <script type="text/javascript" src="../doc_assets/ZeroClipboard.min.js"></script>
+    
+      <script type="text/javascript" src="../doc_assets/functions.js"></script>
+    
+  
+  <!-- Source Components -->
+  
+</body>
+</html>

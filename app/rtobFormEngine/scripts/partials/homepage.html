@@ -1,0 +1,22 @@
+<div ng-controller="MainController" ng-init="init()">
+
+    <div class="row formpageBackground">
+        <div class="leftmenu col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <left-menu></left-menu>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 rightmenu">
+            <header-menu></header-menu>
+            <ng-include src="templateName"></ng-include>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 progressbar">
+            <uib-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b>
+            </uib-progressbar>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-button">
+            <button ng-click="submitData()" class="footer">Ok, next</button>
+        </div>
+    </div>
+</div>

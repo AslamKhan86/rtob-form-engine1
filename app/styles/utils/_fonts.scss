@@ -1,0 +1,15 @@
+// Helvetica Neue Thin
+@include font-face(#{$custom-font1}, '../fonts/#{$custom-font1}/#{$custom-font1}');
+.font-light {
+  font-family: $custom-font1, arial, sans-serif;
+  font-weight: normal !important;
+}
+
+.font-regular {
+  font-family: arial, sans-serif;
+}
+
+.font-bold {
+  @extend .font-regular;
+  font-weight: bold;
+}

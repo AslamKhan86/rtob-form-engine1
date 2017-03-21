@@ -1,0 +1,29 @@
+.main-nav {
+  // do not use compass here. It will mess-up
+  -webkit-transition: visibility 0s linear .2s;
+  transition: visibility 0s linear .2s;
+
+
+  .active-nav & {
+    // do not use compass here. It will mess-up
+    -webkit-transition: z-index 0s linear .2s;
+    transition: z-index 0s linear .2s;
+
+  }
+
+  .older-devices & { @include transform(none); }
+}
+
+.wrapper {
+  //@include translateX(0);
+  @include transition-property(transform);
+  @include transition-duration($slide-nav-duration);
+  @include transition-timing-function(ease-in-out);
+
+  .active-nav & {
+    @include translateX($nav-width);
+    .older-devices & { margin: 0 0 0 $nav-width; }
+  }
+
+  .older-devices & { @include transform(none); }
+}

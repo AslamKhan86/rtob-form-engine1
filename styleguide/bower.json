@@ -1,0 +1,24 @@
+{
+  "name": "styleguide",
+  "authors": [
+    "Amin Shariati <amin.shariati@accenture.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clipboard": "^1.5.9",
+    "hologram-github-theme": "^0.1.4",
+    "Cortana": "^1.2.9"
+  }
+}

@@ -1,0 +1,12 @@
+
+<div ng-if="appError" class="error-title">
+  <p>{{appError}}</p>
+  <button class="close-button" ng-click='rejectApplication()'> Reject Application</button>
+</div>
+
+<div ng-if="error" class="error-title">
+  <p>Error Code: {{error.error_code}}</p>
+  <p>{{error.error_msg}}</p>
+  <button class="close-button close-button-sm" ng-click='rejectApplication()'> REJECT APPLICATION</button>
+  <button class="reject-button" ng-click='closeModal()'>Proceed </button>
+</div>

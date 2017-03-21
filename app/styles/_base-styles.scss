@@ -1,0 +1,55 @@
+//
+// Import of files to generate the main.css used in the <head> of the html
+//
+
+// importing compass
+@import 'compass';
+
+// importing the main reset
+@import 'compass/reset';
+
+// used for css transition: http://compass-style.org/reference/compass/css3/transition/
+@import 'compass/css3/transform';
+
+// used for the clearfix: http://compass-style.org/reference/compass/utilities/general/clearfix/
+@import 'compass/utilities/general/clearfix';
+
+// used for box-shadows: http://compass-style.org/reference/compass/css3/box_shadow/
+@import 'compass/css3/box-shadow';
+
+// used to image-replacement: http://compass-style.org/reference/compass/typography/text/replacement/
+@import 'compass/typography/text/replacement';
+
+// used to make sprite easier: http://compass-style.org/reference/compass/utilities/sprites/base/
+@import 'compass/utilities/sprites/base';
+
+// to disable text selection
+@import 'compass/css3/user-interface';
+
+// contains all the utilities of the project
+@import 'utils/all';
+
+// contains all the modules of the project
+@import 'modules/all';
+// // contains all the atoms of the project
+// @import 'atoms/all';
+
+// contains all the molecules of the project
+@import 'atoms/all';
+
+// contains all the molecules of the project
+@import 'molecules/all';
+
+// // contains all the organisims of the project
+// @import 'organisims/all';
+
+// contains all the tweaks of the project
+@import 'quarks/all';
+
+
+// @media
+// only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi),
+// only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)
+// {
+//   @import 'high-res';
+// }
