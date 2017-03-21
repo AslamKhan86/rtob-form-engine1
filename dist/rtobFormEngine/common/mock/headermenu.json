@@ -1,0 +1,9 @@
+{
+    "product": [{
+            "product_type": "CC001",
+            "product_category": "Credit Card",
+            "insta_pack": false,
+            "is_joint_allowed": false,
+            "name": "Super Value Titanium Card"
+    }]
+}

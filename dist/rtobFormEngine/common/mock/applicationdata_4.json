@@ -1,0 +1,35 @@
+{
+	"applicationdata": {
+		"application": {
+			"branch_code": "0001",
+			"country_code": "IN",
+			"referral": "",
+			"referral_id": "",
+			"acquisition_channel": "",
+			"source_system_name": "RWB",
+			"channel_ref_no": "",
+			"application_ref_no": "",
+			"source_id": "",
+			"application_timestamp": "",
+			"priority_flag": "",
+			"application_status": "",
+			"total_applicants": "",
+			"application_error_code": [],
+			"application_error_message": []
+		},
+		"stage": {
+			"page_id": "",
+			"stage_id": "",
+			"stage_name": "",
+			"stage_status": "",
+			"stage_params": {
+				"is_dedupe_required": "",
+				"current_applicant": ""
+			},
+			"applicant_status": []
+		},
+		"applicants": {},
+		"products": [],
+		"dedupe": {}
+	}
+}
