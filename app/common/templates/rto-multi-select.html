@@ -1,0 +1,13 @@
+<div class="multiselect">
+<ui-select id={{field.logical_field_name}}_a_{{i+1}} multiple ng-focus="error[field.logical_field_name+'_a_'+(i+1)] = false"
+               ng-model=fields[field.logical_field_name+'_a_'+(i+1)] theme="bootstrap" ng-disabled=disabled[field.logical_field_name+'_a_'+(i+1)]
+               on-select="onSelectCallback($item, $model, field.logical_field_name, i, $select)" close-on-select="false" title="Select a value">
+    
+    <ui-select-match placeholder="{{fields[field.logical_field_name+'_a_'+(i+1)] ===null ? field.mandatory=='Yes'?field.rwb_label_name+' *':field.rwb_label_name: ''}}">{{$item.CODE_DESC}}</ui-select-match>
+    <ui-select-choices repeat="lov.TP_System_Value as lov in selectvals| filter: $select.search">
+    		{{lov.TP_System_Value}}
+          <span ng-if="!lov.CODE_DESC && !lov.errCode"><span ng-bind-html="lov.CODE_DESC | highlight: $select.search"></span></span>
+          <span ng-if="lov.CODE_DESC && !lov.errCode"><span ng-bind-html="lov.CODE_DESC | highlight: $select.search"></span></span>
+        </ui-select-choices>
+</ui-select>
+</div>

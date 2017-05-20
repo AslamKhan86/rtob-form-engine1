@@ -1,0 +1,44 @@
+<span>
+    <span ng-if="witharea == 'Y'">
+        <div class="row">
+            <div class="mobileSelectComp col-md-5">
+                <ui-select theme="selectize" ng-model="countryCode" on-select="onSelectCallback($item, $model)">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="lov.id as lov in selectFields| filter: $select.search">
+                        <span ng-bind-html="lov.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div class="col-md-2">
+            <input type="number" id="areaCode" ng-model="areaCode" class="inputText mobile m rto-textbox"
+                   ng-blur="updateAreaCode()" onKeyPress="if(this.value.length>=4) return false;" maxLength="4" ng-disabled="disableAadhaar" required />
+            </div>
+            <div class="col-md-5">
+            <input type="number" ng-model="mobileNo" class="inputText mobile rto-textbox"
+                   ng-blur="updateMobileNo()" onKeyPress="if(this.value.length>=10) return false;" maxlength={{Length}} ng-disabled="disableAadhaar" required />
+            </div>
+            <span class="phone-separators separator-d"></span>
+            <span class="phone-separators separator-m"></span>
+            <span class="phone-separators separator-y"></span>
+        </div>
+    </span>
+    <span ng-if="witharea != 'Y'">
+        <div class="row">
+            <div class="mobileSelectComp col-md-5">
+                <ui-select theme="selectize" ng-model="countryCode" on-select="onSelectCallback($item, $model)">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="lov.id as lov in selectFields| filter: $select.search">
+                        <span ng-bind-html="lov.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div class="col-md-7">
+            <input type="number" ng-model="mobileNo" class="inputText mobile rto-textbox"
+                   ng-blur="updateMobileNo()" onKeyPress="if(this.value.length>=10) return false;" maxlength={{Length}} ng-disabled="disableAadhaar" required />
+            </div>
+
+            <span class="phone-separators separator-d"></span>
+            <span class="phone-separators separator-dy"></span>
+        </div>
+    </span>
+</span>

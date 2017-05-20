@@ -1,25 +1,21 @@
-function ModalController($rootScope,$scope, $fancyModal,ErrorDetail,$timeout) {
+function ModalController($scope, $fancyModal) {
 
-  $scope.item = ErrorDetail.getProperty();
+  $scope.error= '';
 
-  $scope.appError = ErrorDetail.getAppError();
-
-  $scope.error= $scope.item[$rootScope.errorCount];
-
-  $scope.closeModal = function(){
+  $scope.cancelApplication = function(){
+      //TODO redirection - for cordova build
       $fancyModal.close();
-    if($rootScope.count-1 < 0){
-      return false;
-    }else{
-      $timeout(function() {
-        $rootScope.displayError($rootScope.count-1);}, 700);
-    }
-  }
+      window.open('../../login/index.html#/productCatalogue?flow=productCatalogue', '_self');
+  };
 
-
-  $scope.rejectApplication =function(){
-    //To DO redirection - Plus save on redirection
+  $scope.reviewApplication =function(){
     $fancyModal.close();
-  }
+  };
+
+  $scope.__retrySubmission = function(){
+    $fancyModal.close();
+    //TODO retry submission
+    //$scope.$root.$broadcast('__retrySubmission');
+  };
 
 };

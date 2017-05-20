@@ -1,22 +1,28 @@
-<div ng-controller="MainController" ng-init="init()">
-
-    <div class="row formpageBackground">
-        <div class="leftmenu col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <left-menu></left-menu>
-        </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 rightmenu">
-            <header-menu></header-menu>
-            <ng-include src="templateName"></ng-include>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 progressbar">
-            <uib-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b>
-            </uib-progressbar>
-        </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-button">
-            <button ng-click="submitData()" class="footer">Ok, next</button>
-        </div>
-    </div>
+<div class="server-error" ng-if="isServerError"><div class="errorBanner" ng-click="__modalError()"><span class="error-icon"></span><p>There are errors. Click to view errors.</p><span class="close-banner" ng-click="closeServerError()"></span></div></div>
+<div class="rtob-success" ng-if="rtobSuccess"><span class="success-icon"></span>Application No. {{appreference}} is successfully created<span class="close-banner" ng-click="closeBanner()"></span></div>
+<div class="close-button" ng-click="openSaveModal()"><span class="close-icon"></span></div>
+<div ng-init="init()">
+	<div class="row formpageBackground">
+		<div class="leftmenu col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <nav class="left-menu navbar navbar-inverse">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <section class="banner_logo"></section>
+                    <left-menu text="leftMenuDisabledStages" ng-if="loadLeftMenu"></left-menu>
+                </div>
+            </nav>
+		</div>
+		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 rightmenu">
+			<div ng-if="showHeaderMenu"><header-menu></header-menu></div>
+			<div ui-view>
+					<ng-include src="templateName"></ng-include>
+			</div>
+		</div>
+	</div>
 </div>

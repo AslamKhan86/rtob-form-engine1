@@ -1,0 +1,18 @@
+<div class="">
+	{{field.RTOB_Field_Name}}<span ng-if=field.Mandatory=="Yes">*</span>
+	<div>
+		<div ng-repeat="vals in selectvals">
+			<div ng-if="singleRow" class="col-md-4  col-sm-12 col-xs-12 checkbox-element" ng-click="selectItem(vals, fields, field, i)" ng-class="{ selected: vals.selected }">
+				<input type=checkbox style="display:none" value=vals.id ng-model="vals.value">{{vals.name}}</input>
+				{{vals.value}}
+			</div>
+			<div ng-if="!singleRow" class="col-md-6 col-sm-12 col-xs-12 checkbox-element" ng-click="selectItem(vals, fields, field, i)" ng-class="{ selected: vals.selected }">
+				<input type=checkbox style="display:none" value=vals.name ng-model="vals.value">{{vals.name}}</input>
+				{{vals.value}}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

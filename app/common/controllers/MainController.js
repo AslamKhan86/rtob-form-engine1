@@ -20,7 +20,6 @@ function MainController($scope, $state, $rootScope, $window, $stateParams, $http
         $scope.headerObj = (prodCatalogueData) ? prodCatalogueData.header : {'Content-Type': 'application/x-www-form-urlencoded'};
         $scope.products = (prodCatalogueData) ? prodCatalogueData.products : $scope.setProducts();
         $scope.applicationData = new ApplicationData();
-        $scope.formData = new FormData();
         $scope.applicationData.load().then(function(success) {
             $scope.leftMenuSelected = success.data.applicationdata.stage.page_id;
             $scope.applicationData = success.data.applicationdata;
@@ -30,7 +29,27 @@ function MainController($scope, $state, $rootScope, $window, $stateParams, $http
             $scope.createProduct();
         });
 
+        $scope.formData = new FormData();
+        $scope.formData.load().then(function(success) {      
+            _.each($scope.formData, function(item, index, list) {
+                list[index]['Seq_No'] = new Number(item['Seq_No']);
+                list[index]['Positioning'] = new Number(item['Positioning']);
+                if (list[index]['Logical_Field_Name'] == 'email') {
+                    item['isEmail'] = true;
+                } else {
+                    item['isEmail'] = false;
+                }
+            });
+            $scope.formData = _.sortBy($scope.formData, 'Seq_No');
+        });
         console.log("Inside the init of RTO controller");
+    };
+
+    $scope.openSaveModal = function() {
+        $fancyModal.open({
+            templateUrl: 'rtobFormEngine/scripts/partials/saveandhold.html',
+            controller: 'SaveController'
+        });
     };
 
     $scope.setProducts = function() {

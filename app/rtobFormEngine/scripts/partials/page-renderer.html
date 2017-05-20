@@ -1,0 +1,36 @@
+<div ng-controller="PageController" ng-init="init()">
+<form class="basicDataForm" ng-submit="submitData(model)">
+  <div ng-switch="totalApplicants">
+      <div ng-switch-when="1">
+        <div onload="index = 1" ng-include="applicantTemplateName"></div>
+        <!-- Applicant Product Specific Start -->
+        <div ng-repeat="joint in ['Y']" onload="index = 1" ng-include="productTemplateName"></div>
+        <!-- Applicant Product Specific End -->
+      </div>
+      <div ng-switch-default>
+          <uib-accordion close-others="oneAtATime">
+              <div class="row uib-accordion-wrapper" ng-repeat="i in range(totalApplicants)">
+                  <div uib-accordion-group class="panel-default" is-open="group[i].open">
+                      <uib-accordion-heading>
+                          Applicant {{i+1}}<i class="pull-right glyphicon" ng-class="{'glyphicon-minus': group[i].open, 'glyphicon-plus': !group[i].open}"></i>
+                      </uib-accordion-heading>
+                      <div onload="index = (i+1)" ng-include="applicantTemplateName"></div>
+                      <!-- Applicant Product Specific Start -->
+                      <div ng-repeat="joint in ['Y']" onload="index = (i+1)" ng-include="productTemplateName"></div>
+                      <!-- Applicant Product Specific End -->
+                  </div>
+              </div>
+          </uib-accordion>
+      </div>
+      
+  </div>
+  <!--Product Specific Start-->
+  <div ng-repeat="joint in ['N']" onload="index = 0" ng-include="productTemplateName"></div>
+  <!--Product Specific End-->
+
+  <!-- Application Specific Start-->
+  <div ng-include="applicationTemplateName"></div>
+  <!-- Application Specific End-->
+</form>
+<footer-text></footer-text>
+</div>

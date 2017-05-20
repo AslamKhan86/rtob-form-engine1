@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="35.969" viewBox="0 0 36 35.969">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        filter: url(#filter-2);
+      }
+
+      .cls-3 {
+        filter: url(#filter-3);
+      }
+
+      .cls-4 {
+        filter: url(#filter-4);
+      }
+
+      .cls-5 {
+        stroke-width: 1px;
+        filter: url(#filter-5);
+      }
+    </style>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#ff5c41"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="403.75" y="138.531" width="2" height="13.657" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#d74141"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-3" x="403.75" y="154.75" width="2" height="6.062" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#d74141"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-4" x="387" y="132.031" width="36" height="35.969" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#d74141"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-5" x="390.062" y="139.562" width="5.063" height="20.25" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#d74141"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Error_sign" data-name="Error sign" class="cls-1">
+    <g transform="translate(-387 -132.031)" style="fill: none; filter: url(#filter-2)">
+      <path id="path-2" class="cls-2" d="M404.746,139.526v11.662" style="stroke: inherit; filter: none; fill: inherit"/>
+    </g>
+    <use transform="translate(-387 -132.031)" xlink:href="#path-2" style="stroke: #fff; filter: none; fill: none"/>
+    <g transform="translate(-387 -132.031)" style="fill: none; filter: url(#filter-3)">
+      <path id="Shape_34_copy" data-name="Shape 34 copy" class="cls-3" d="M404.746,159.809v-4.057" style="stroke: inherit; filter: none; fill: inherit"/>
+    </g>
+    <use transform="translate(-387 -132.031)" xlink:href="#Shape_34_copy" style="stroke: #fff; filter: none; fill: none"/>
+    <g transform="translate(-387 -132.031)" style="fill: none; filter: url(#filter-4)">
+      <path id="path" class="cls-4" d="M404.746,133.018a17.351,17.351,0,0,1,17.241,17.156,16.751,16.751,0,0,1-4.991,11.6,16.936,16.936,0,0,1-12.25,5.218,16.629,16.629,0,0,1-16.733-16.818A16.918,16.918,0,0,1,404.746,133.018Z" style="stroke: inherit; filter: none; fill: inherit"/>
+    </g>
+    <use transform="translate(-387 -132.031)" xlink:href="#path" style="stroke: #fff; filter: none; fill: none"/>
+    <g transform="translate(-387 -132.031)" style="fill: none; filter: url(#filter-5)">
+      <path id="Ellipse_8_copy" data-name="Ellipse 8 copy" class="cls-5" d="M394.605,159.3a11.427,11.427,0,0,1-4.057-9.128,14.1,14.1,0,0,1,4.057-10.141" style="stroke: inherit; filter: none; fill: inherit"/>
+    </g>
+    <use transform="translate(-387 -132.031)" xlink:href="#Ellipse_8_copy" style="stroke: #fff; filter: none; fill: none"/>
+  </g>
+</svg>

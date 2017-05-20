@@ -1,0 +1,19 @@
+<div class="selectWrapper">
+    <span ng-show="error[field.logical_field_name+fieldidsuffix] && !fields[field.logical_field_name+fieldidsuffix]" class="floating-label notValid">{{field.rwb_label_name}} is Mandatory <span ng-if=field.Mandatory=="Yes">*</span></span>
+    <span ng-if="fields[field.logical_field_name+fieldidsuffix] !==null && !mobComponentError" class="selectize-control-floating-label">{{field.rwb_label_name}} <span ng-if=field.Mandatory=="Yes">*</span></span>
+<!-- custom-unselect id={{field.logical_field_name}}_a_{{i+1}} -->
+    <ui-select custom-unselect ng-focus="error[field.logical_field_name+fieldidsuffix] = false"
+               ng-model=fields[field.logical_field_name+fieldidsuffix] theme="selectize" ng-disabled=isdisabled
+               on-select="onSelectCallback($item, $model, field.logical_field_name, i, $select, fieldidsuffix)">
+        <ui-select-match allow-clear="true"
+                placeholder="{{fields[field.logical_field_name+fieldidsuffix] ===null ? field.Mandatory=='Yes'?field.rwb_label_name+' *':field.rwb_label_name: ''}}">
+                <span ng-if="!$select.selected.CODE_DESC">{{$select.selected.name}}</span>
+                <span id='{{field.logical_field_name}}' ng-if="$select.selected.CODE_DESC">{{$select.selected.CODE_DESC}}</span>
+        </ui-select-match>
+        <ui-select-choices repeat="lov.TP_System_Value as lov in selectvals| filter: $select.search">
+          <span ng-if="!lov.CODE_DESC && !lov.errCode"><span ng-bind-html="lov.name | highlight: $select.search"></span></span>
+          <span ng-if="lov.CODE_DESC && !lov.errCode"><span ng-bind-html="lov.CODE_DESC | highlight: $select.search"></span></span>
+          <span style="color: red;" ng-if="lov.errCode && !lov.CODE_DESC"><span ng-bind-html="lov.errDesc"></span></span>
+        </ui-select-choices>
+    </ui-select>
+</div>

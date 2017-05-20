@@ -1,0 +1,57 @@
+{
+    "category": [{
+            "title": "Basic Information",
+            "page_id": "bd",
+            "icons": "",
+            "product_type": ["CC", "PL"]
+        },
+        {
+            "title": "Address",
+            "page_id": "ad-1",
+            "icons": "",
+            "product_type": ["SA", "PL"]
+        },
+        {
+            "title": "Declaration",
+            "page_id": "ad-3",
+            "icons": "",
+            "product_type": ["SA", "PL"]
+        },
+        {
+            "title": "Documents",
+            "page_id": "doc",
+            "icons": "",
+            "product_type": ["SA", "PL"]
+        },
+        {
+            "title": "Additional Data",
+            "page_id": "ad-4",
+            "icons": "",
+            "product_type": ["SA", "CC"]
+        },
+        {
+            "title": "Product Specific",
+            "page_id": "ad-5",
+            "icons": "",
+            "product_type": ["CC"]
+        },
+        {
+            "title": "Fulfillment Data",
+            "page_id": "ffd-1",
+            "icons": "",
+            "product_type": ["CC", "PL"]
+        },
+        {
+            "title": "Documents",
+            "page_id": "doc-2",
+            "icons": "",
+            "product_type": ["SA", "PL"]
+        },
+        {
+            "title": "Review",
+            "page_id": "rp",
+            "icons": "",
+            "product_type": ["CC", "PL"]
+        }
+    ]
+}

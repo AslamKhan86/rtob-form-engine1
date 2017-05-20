@@ -1,0 +1,36 @@
+<div class="wrapper" ng-init="init()">
+<div class="row error">
+  <div class="row title"><h2>Whoops!</h2></div>
+  <div class="row description">Please rectify the below errors..</div>
+</div>
+<div id="error-details" class ="row error-details" >
+  <!-- Applicant Error -->
+  <div class="row " ng-repeat="(key, applicantErrors) in applicantError" >
+    <div class="error-content" ng-if="applicantErrors.length">
+      <div class="row error-heading">
+        <div class="error-icon"></div>{{key}}
+      </div>
+      <div class="row error-description">
+        <ul  ng-repeat="error in applicantErrors">
+          <li class="applicant-error">{{error.applicant_name}}</li>
+          <li>{{error.description}}</li>
+        </ul>
+        </div>
+    </div>
+  </div>
+
+  <!-- Product Error -->
+  <div class="row " ng-repeat="productErrors in productError" >
+    <div class="error-content" ng-if="productErrors.length" ng-repeat="error in productErrors">
+      <div class="row error-heading" ng-if="error.code"><div class="error-icon"></div>{{error.description}}</div>
+      <div class="row error-description" ng-if="error.description">{{error.description}}</div>
+    </div>
+  </div>
+
+  <div class="row error-button whoops-error">
+    <button id="cancel-application" class="col-sm-6 col-md-6 cancel" ng-click='cancelApplication()'>CANCEL APPLICATION</button>
+    <button id="review-application" class="col-sm-6 col-md-6 review" ng-click='closeModal()'>REVIEW</button>
+  </div>
+</div>
+
+</div>

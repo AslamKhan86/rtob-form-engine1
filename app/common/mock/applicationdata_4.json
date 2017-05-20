@@ -1,19 +1,19 @@
 {
 	"applicationdata": {
 		"application": {
-			"branch_code": "0001",
+			"branch_code": null,
 			"country_code": "IN",
 			"referral": "",
 			"referral_id": "",
 			"acquisition_channel": "",
 			"source_system_name": "RWB",
 			"channel_ref_no": "",
-			"application_ref_no": "",
+			"application_reference": "",
 			"source_id": "",
 			"application_timestamp": "",
 			"priority_flag": "",
 			"application_status": "",
-			"total_applicants": "",
+			"total_applicants": 2,
 			"application_error_code": [],
 			"application_error_message": []
 		},
@@ -30,6 +30,6 @@
 		},
 		"applicants": {},
 		"products": [],
-		"dedupe": {}
+		"dedupeList": {}
 	}
 }

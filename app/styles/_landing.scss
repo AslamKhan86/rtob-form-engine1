@@ -20,7 +20,6 @@
   justify-content: center;
   text-align: center;
   line-height:1;
-
   color: #fff;
   text-decoration: none;
 }
@@ -30,8 +29,16 @@
   margin: auto 30%;
 }
 
-.row {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  // border-bottom: 1px solid #ccc9c9;
+footer{
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  margin-bottom:0px;
+  z-index: 1050;
+  padding-left:10px;
+}
+
+body{
+  margin-bottom:70px;
 }

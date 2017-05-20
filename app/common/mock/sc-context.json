@@ -11,6 +11,6 @@
         "insta_pack": false
     }],
     "header": {
-        "SC-CLIENT-CONTEXT": "{\"reqId\":\"297752cd-a4b7-4dd7-9af5-7d649be38598\",\"Channel\":\"MOBILE\",\"Country\":\"IN\",\"Language\":\"EN\",\"AppName\":\"RCWB\",\"ClientId\":\"MOBILE\",\"InstanceCode\":\"CB_IN\",\"RumDevice\":\"devicebrowserversion\"}"
+        "SC-CLIENT-CONTEXT": "{\"reqId\":\"297752cd-a4b7-4dd7-9af5-7d649be38598\",\"source\":\"desktop\",\"Channel\":\"MOBILE\",\"Country\":\"IN\",\"Language\":\"EN\",\"AppName\":\"RCWB\",\"ClientId\":\"MOBILE\",\"InstanceCode\":\"CB_IN\",\"RumDevice\":\"devicebrowserversion\"}"
     }
 }

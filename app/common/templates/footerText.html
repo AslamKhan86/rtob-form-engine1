@@ -1,0 +1,18 @@
+<footer>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 progressbar">
+      <uib-progressbar animate="false" value="dynamic" type="success">
+        <b>{{dynamic}}%</b>
+      </uib-progressbar>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-button" ng-if="!submitInProgress && !formReadyForSubmission">
+      <button ng-click="submitData()" class="footer">Ok, next</button>
+    </div>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-button" ng-if="!submitInProgress && formReadyForSubmission">
+              <button ng-click="submitData()" class="footer green">Ok, next</button>
+          </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 footer-button" ng-if="submitInProgress">
+      <button class="footerInProgress">Sending data, please wait..<span class="inProgressIcon"></span></button>
+    </div>
+  </div>
+</footer>

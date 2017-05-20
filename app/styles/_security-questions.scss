@@ -1,0 +1,226 @@
+.security-questions {
+    body {
+        margin: 0;
+    }
+
+    .sc-logo {
+        float: right;
+    }
+
+    .inputText,
+    .nopassword,
+    .nopassword,
+    .otp-prefix,
+    .security-select span,
+    .selectize-input input {
+        font-size: 17px;
+        font-weight: 300;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .security-bg,
+    .security-bg-1 {
+        min-height: 100%;
+        min-width: 1024px;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -9999;
+    }
+    .security-bg-1 {
+        z-index: -9998;
+    }
+
+    .form-sign-heading {
+        text-align: center;
+        color: #fff;
+        font-size: 2.4em;
+        line-height: 1.2em;
+        padding: 90px 0 30px;
+        font-family: 'SC Sans Web Ultra Thin';
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .field-container {
+        padding: 0 !important;
+        height: 65px;
+        margin-bottom: 20px;
+    }
+
+    .column-main,
+    footer {
+        margin: 0 auto;
+        float: none;
+    }
+
+    .security-header {
+        background: #fff;
+        padding: 20px;
+    }
+
+    .icon-text {
+        padding: 2% 3%;
+        text-align: center;
+        border-right: 1px solid #E6E6E6;
+        font-size: 1.2em;
+    }
+
+    .nextBtn {
+        background: #6AC075;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 0;
+        height: 60px;
+        color: #fff;
+        margin-bottom: 60px;
+        opacity: 1 !important;
+    }
+
+    button:disabled {
+        color: #000;
+        background-color: #B0B0B0;
+    }
+
+    button {
+        color: #fff;
+        background-color: #B0B0B0;
+    }
+
+    .btn:hover {
+        color: #000;
+    }
+
+    .copyright {
+        text-align: center;
+        text-decoration: underline;
+        color: #fff;
+    }
+
+    .floating-label {
+        transition: 0.2s all;
+    }
+
+    .floating-label.idType {
+        left: 36px;
+        top: 4px;
+        font-size: 11px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        z-index: 99;
+        color: #3BC7FA;
+    }
+
+    .error-security {
+        font-family: 'scsans', sans-serif;
+        color: #115c41;
+        font-size: 16px;
+        padding: 28px 28px 28px 60px;
+        background: url("../img/security-questions/ico-error-sign.svg") no-repeat 10px center;
+        text-align: left;
+    }
+
+    .error-background {
+        overflow: hidden;
+        position: absolute;
+        background: #FFFFCD;
+        width: 100%;
+        transition: transform 0.4s ease,-webkit-transform 0.4s ease;
+        left: 0;
+        z-index: 9999;
+        transition: visibility 0s, opacity 0.5s linear;
+    }
+
+    .mobile-otp {
+        form {
+            margin-top: 100px;
+        }
+
+        .submit-btn {
+            margin: 112px 0;
+
+            &.margin-top-adjust {
+                margin-top: 182px;
+            }
+        }
+
+        .caption {
+            font-weight: 300;
+        }
+    }
+
+    .security-select {
+        margin-bottom: 20px;
+    }
+
+    .requestOtp,
+    .resendOtp {
+        text-decoration: underline;
+        color: #fff;
+        text-align: center;
+        display: block;
+    }
+
+    .resendOtp {
+        position: absolute;
+        width: 94%;
+        text-align: center;
+        bottom: -80px;
+        cursor: pointer;
+    }
+
+    .resendOtp:hover {
+        color: #fff;
+    }
+
+    .requestOtp {
+        text-decoration: none;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .resendShow {
+        cursor: pointer;
+    }
+
+    .otp-field {
+        margin: 0 auto;
+        position: relative;
+        letter-spacing: 1px;
+
+        & .otp-prefix {
+            position: absolute;
+            color: #B0B0B0;
+            top: 22px;
+            font-size: 16px;
+            padding-left: 20px;
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        input {
+            padding: 0 15px 0 85px;
+            height: auto;
+            color: #696969;
+            width: 100%;
+            height: 65px;
+            border: none;
+        }
+    }
+
+    .password {
+        font-size: 1.4em;
+        letter-spacing: 0.4em;
+    }
+
+    .back img {
+        height: 40px;
+        margin-left: 70px;
+        margin-top: 40px;
+    }
+}

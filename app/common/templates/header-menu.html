@@ -1,12 +1,13 @@
 <div class="header-menu">
     <h5 class="basicInfoHeading">These are the products you are applying for:</h5>
+    <h5 class="bundle-header" ng-if="bundleName !==null">{{bundleName}}</h5>
     <ul class="headerLeft">
-        <li class="headerMenu" ng-repeat="item in products" ng-class="{'hide': $index > 3  }">
+        <li class="headerMenu" ng-repeat="item in headerMenu" ng-class="{'hide': $index > 3  }">
             <label class="headerMenulist">  {{item.name}}  </label>
         </li>
     </ul>
     <ul class="headerRight">
-        <li class="headerMenu" ng-repeat="item in products" ng-class="{'hide': $index <= 3  }">
+        <li class="headerMenu" ng-repeat="item in headerMenu" ng-class="{'hide': $index <= 3  }">
             <label class="headerMenulist">  {{item.name}}  </label>
         </li>
     </ul>

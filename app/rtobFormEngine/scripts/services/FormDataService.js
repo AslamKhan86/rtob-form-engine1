@@ -33,8 +33,8 @@ function FormData($http, BASE_URL, $q, _) {
                 url: 'common/mock/formdata_v4.0.json'
             }).then(function(success) {
                 deferred.resolve(success);
-                scope.setData(success.data.formData.data.sections[0].fields);
-                var required = success.data.formData.data.sections[0].fields.filter(function(data,index) {
+                scope.setData(success.data.formData.data.stages[0].fields);
+                var required = success.data.formData.data.stages[0].fields.filter(function(data,index) {
                     if(data['Mandatory']=='Yes'){
                       scope._required[data.LOV_Field_Name]=data.Logical_Field_Name;
                     }

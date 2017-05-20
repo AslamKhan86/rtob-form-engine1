@@ -1,0 +1,81 @@
+<div ng-repeat="(key, fieldsMetaData) in onlyApplicantSpecificGroups" style="clear: both;">
+<div class="row" style="padding-top:20px;padding-bottom:20px;border-bottom: 1px solid #F2F2F2;" ng-if="key!=''"><label class="fieldsetLabel">{{key}}</label></div>
+<div ng-repeat="field in fieldsMetaData">
+    <div class="border-line" ng-class="field.positioning==2 ? 'col-md-6 col-sm-6 col-xs-12' : 'col-md-12 col-sm-12 col-xs-12'" ng-hide="visibility[field.logical_field_name+'_a_'+(index)]">
+        <div ng-switch="field.component_type" class="{{field.logical_field_name}}">
+          <div ng-switch-when="Text">
+            <span ng-if="field.logical_field_name !== 'mobile'" >
+              <rto-textbox
+                id={{field.logical_field_name}}_a_{{index}}
+                class="inputText required "
+                type="text" size=30
+                ng-model="fields[field.logical_field_name+'_a_'+(index)]"
+                isEmail={{field.isEmail}}
+                isPan={{field.isPan}}
+                regexp={{field.regexp}}
+                maxlength={{field.Length}}
+                disableaadhaar="disableInput[field.logical_field_name+'_a_'+(index)]"
+                >
+              </rto-textbox>
+              <span class="floating-label">{{field.rwb_label_name}} <span ng-if=field.mandatory=="Yes">*</span></span>
+              <span ng-show="error[field.logical_field_name+'_a_'+(index)] && !fields[field.logical_field_name+'_a_'+(index)]" class="floating-label notValid">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+            </span>
+            <span ng-if="field.logical_field_name == 'mobile'">
+                  <rto-mobile mobile="fields[field.logical_field_name+'_a_'+(index)]"
+                              countrycode="countryCode" mobileno="mobileNo" selectfields="selectFields"
+                              regexp=field.regexp maxlength=field.Length
+                              d="field.logical_field_name+'_a_'+(index+1)"
+                              class="componentMobile" id={{field.logical_field_name}}_a_{{index}}
+                              ng-attr-date-label="{{ field.mandatory=='Yes' ? field.rwb_label_name + '*' : field.rwb_label_name }} ">
+                  </rto-mobile>
+                  <span ng-if="!error[field.logical_field_name+'_a_'+(index)]" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" class="floating-label">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? '*' :''}}</span>
+                  <span ng-show="error[field.logical_field_name+'_a_'+(index)] && !fields[field.logical_field_name+'_a_'+(index)] && !invalidMobileMsg" style="color: red" class="notValid floating-label">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+                  <span ng-if="error[field.logical_field_name+'_a_'+(index)] && invalidMobileMsg" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" style="color: red" class="floating-label">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? ' entered is invalid *' :'entered is invalid'}}</span>
+            </span>
+          </div>
+          <div ng-switch-when="Selection Box">
+              <span ng-show="error[field.logical_field_name+'_a_'+(index)] && !fields[field.logical_field_name+'_a_'+(index)]" class="floating-label notValid">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+              <rto-select field=field i=index selectvals=selectFields[field.logical_field_name] fields=fields disabled=$parent.disabled fieldidsuffix="getFieldIdSuffix('a',index)">
+              </rto-select>
+          </div>
+          <div ng-switch-when="Toggle" class="switch-staffMaindiv toggle">
+              {{field.rwb_label_name}}<span ng-if=field.mandatory=="Yes">*</span>
+              <rto-toggle field=field i=i selectvals=selectFields[field.logical_field_name] fields=fields fieldidsuffix="getFieldIdSuffix('a',index)"></rto-toggle>
+          </div>
+          <div ng-switch-when="Date" class="switch-staffMaindiv">
+              <span ng-if="!error[field.logical_field_name+'_a_'+(index)]" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" class="date-component">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? '*' :''}}</span>
+              <span ng-show="error[field.logical_field_name+'_a_'+(index)] && !fields[field.logical_field_name+'_a_'+(index)] && invalidMsg[field.logical_field_name+'_a_'+(index)] !==field.logical_field_name+'_a_'+(index)" class="notValid date-component">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+              <span ng-if="error[field.logical_field_name+'_a_'+(index)] && invalidMsg[field.logical_field_name+'_a_'+(index)] ==field.logical_field_name+'_a_'+(index) " ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" class="date-component">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? ' entered is invalid *' :'entered is invalid'}}</span>
+              <rto-date ng-attr-is-valid="{{(field.mandatory=='Yes') && (error[field.logical_field_name+'_a_'+(index)]) ? notValid : valid}}" id={{field.logical_field_name}}_a_{{index}} date="fields[field.logical_field_name+'_a_'+(index)]" field-name="{{field.rwb_label_name}}" class="inputText dob" date1="date1[field.logical_field_name+'_a_'+(index)]" month="month[field.logical_field_name+'_a_'+(index)]" year="year[field.logical_field_name+'_a_'+(index)]" disabledob="disableDob[field.logical_field_name+'_a_'+(index)]"></rto-date>
+          </div>
+          <div ng-switch-when="Phone with Area Code">
+              <rto-mobile mobile="fields[field.logical_field_name+'_a_'+(index)]"
+                          countrycode="countryCode" mobileno="mobileNo" selectfields="selectFields"
+                          regexp=field.regexp maxlength=field.Length
+                          d="field.logical_field_name+'_a_'+(index)"
+                          witharea="'Y'" 
+                          class="componentMobile" id={{field.logical_field_name}}_a_{{index}}
+                          ng-attr-date-label="{{ field.mandatory=='Yes' ? field.rwb_label_name + '*' : field.rwb_label_name }} ">
+              </rto-mobile>
+              <span ng-if="!error[field.logical_field_name+'_a_'+(index)]" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" class="floating-label">{{field.rwb_label_name1}} {{field.mandatory=='Yes' ? '*' :''}}</span>
+              <span ng-show="error[field.logical_field_name+'_a_'+(index)] && !fields[field.logical_field_name+'_a_'+(index)] && !invalidMobileMsg" style="color: red" class="notValid floating-label">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+              <span ng-if="error[field.logical_field_name+'_a_'+(index)] && invalidMobileMsg" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" style="color: red" class="floating-label">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? ' entered is invalid *' :'entered is invalid'}}</span>
+          </div>
+          <div ng-switch-when="Phone">
+              <rto-mobile mobile="fields[field.logical_field_name+'_a_'+(index)]"
+                          countrycode="countryCode" mobileno="mobileNo" selectfields="selectFields"
+                          regexp=field.regexp maxlength=field.Length
+                          d="field.logical_field_name+'_a_'+(index)"
+                          witharea="'N'" 
+                          class="componentMobile" id={{field.logical_field_name}}_a_{{index}}
+                          ng-attr-date-label="{{ field.mandatory=='Yes' ? field.rwb_label_name + '*' : field.rwb_label_name }} ">
+              </rto-mobile>
+              <span ng-if="!error[field.logical_field_name+'_a_'+(index)]" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" class="floating-label">{{field.rwb_label_name1}} {{field.mandatory=='Yes' ? '*' :''}}</span>
+              <span ng-show="error[field.logical_field_name+'_a_'+(index)] && !fields[field.logical_field_name+'_a_'+(index)] && !invalidMobileMsg" style="color: red" class="notValid floating-label">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+              <span ng-if="error[field.logical_field_name+'_a_'+(index)] && invalidMobileMsg" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)])}" style="color: red" class="floating-label">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? ' entered is invalid *' :'entered is invalid'}}</span>
+          </div>
+          <div ng-switch-default class="col-md-6"></div>
+      </div>
+    </div>
+</div>
+</div>

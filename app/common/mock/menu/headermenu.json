@@ -1,0 +1,24 @@
+{
+    "product": [{
+            "product_type": "CC",
+            "product_category": "Credit Card",
+            "insta_pack": false,
+            "is_joint_allowed": false,
+            "name": "Credit Card"
+        },
+        {
+            "product_type": "SA",
+            "product_category": "Debit card",
+            "insta_pack": false,
+            "is_joint_allowed": false,
+            "name": "Debit card"
+        },
+        {
+            "product_type": "PL",
+            "product_category": "Personal Loan",
+            "insta_pack": false,
+            "is_joint_allowed": false,
+            "name": "Personal Loan"
+        }
+    ]
+}

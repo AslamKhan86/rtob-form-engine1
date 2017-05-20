@@ -1,0 +1,63 @@
+<div ng-repeat="product in products" style="clear: both;">
+<div class="row" style="padding-top:20px;padding-bottom:20px;border-bottom: 1px solid #F2F2F2;" ng-if="getProductFieldFor(product.product_category, joint).length > 0"><label class="fieldsetLabel">{{product.product_category_name}} - {{product.campaign}}</label></div>
+  <div ng-repeat="field in productFields">
+      <div class="border-line" ng-class="field.positioning==2 ? 'col-md-6 col-sm-6 col-xs-12' : 'col-md-12 col-sm-12 col-xs-12'" ng-hide="visibility[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" ng-if="field[convertKey(product.product_category)] == 'Y'">
+          <div ng-switch="field.component_type" class="{{field.logical_field_name}}">
+            <div ng-switch-when="Text">
+              <span ng-if="field.logical_field_name !== 'mobile'" >
+                <rto-textbox
+                  id={{field.logical_field_name}}_a_{{index}}_p_{{product.product_sequence_number}}
+                  class="inputText required "
+                  type="text" size=30
+                  ng-model="fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]"
+                  isEmail={{field.isEmail}}
+                  isPan={{field.isPan}}
+                  regexp={{field.regexp}}
+                  maxlength={{field.Length}}
+                  disableaadhaar="disableInput[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]"
+                  >
+                </rto-textbox>
+                <span class="floating-label">{{field.rwb_label_name}} <span ng-if=field.mandatory=="Yes">*</span></span>
+                <span ng-show="error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && !fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" class="floating-label notValid">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+              </span>
+              <span ng-if="field.logical_field_name == 'mobile'">
+                    <rto-mobile mobile="fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]"
+                                countrycode="countryCode" mobileno="mobileNo" selectfields="selectFields"
+                                regexp=field.regexp maxlength=field.Length
+                                d="field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number"
+                                class="componentMobile" id={{field.logical_field_name}}_a_{{index}}_p_{{product.product_sequence_number}}
+                                ng-attr-date-label="{{ field.mandatory=='Yes' ? field.rwb_label_name + '*' : field.rwb_label_name }} ">
+                    </rto-mobile>
+                    <span ng-if="!error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number])}" class="floating-label">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? '*' :''}}</span>
+                    <span ng-show="error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && !fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && !invalidMobileMsg" style="color: red" class="notValid floating-label">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+                    <span ng-if="error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && invalidMobileMsg" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number])}" style="color: red" class="floating-label">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? ' entered is invalid *' :'entered is invalid'}}</span>
+              </span>
+            </div>
+            <div ng-switch-when="Multi Selection Box">
+                <!-- <span ng-show="error[field.Logical_Field_Name+'_a_'+(i+1)] && !fields[field.Logical_Field_Name+'_a_'+(i+1)]" class="floating-label notValid">{{field.RWB_Label_Name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span> -->
+                <rto-multi-select field=field i=0 selectvals=selectFields[field.logical_lield_Nlme] fields=fields disabled=$parent.disabled>
+                </rto-multi-select>
+                <span class="floating-label select-box">{{field.rwb_label_name}} <span ng-if=field.mandatory=="Yes">*</span></span>
+                <span ng-show="error[field.Logical_Field_Name+'_a_'+(index)+'_p_'+product.product_sequence_number] && !fields[field.Logical_Field_Name+'_a_'+(index)+'_p_'+product.product_sequence_number]" class="floating-label notValid">{{field.rwb_label_name}}<span ng-if=field.mandatory=="Yes"> is Mandatory *</span><span ng-if=field.mandatory=="Conditional"> is invalid</span></span>
+            </div>
+            <div ng-switch-when="Selection Box">
+                <span ng-show="error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && !fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" class="floating-label notValid">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+                <rto-select field=field i=index selectvals=selectFields[field.logical_field_name] fields=fields fieldidsuffix="getFieldIdSuffix('p',index, joint)" disabled=$parent.disabled>
+                </rto-select>
+            </div>
+            <div ng-switch-when="Toggle" class="switch-staffMaindiv toggle">
+                {{field.rwb_label_name}}<span ng-if=field.mandatory=="Yes">*</span>
+                <rto-toggle field=field i=i selectvals=selectFields[field.logical_field_name] fields=fields fieldidsuffix="getFieldIdSuffix('p',index, joint)"></rto-toggle>
+                <switch id={{field.logical_field_name}}_a_{{index}}_p_{{product.product_sequence_number}} class="green switch-staff" name="enabled" ng-init="fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]=false" ng-model="fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" class="green"></switch>
+            </div>
+            <div ng-switch-when="Date" class="switch-staffMaindiv">
+                <span ng-if="!error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number])}" class="date-component">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? '*' :''}}</span>
+                <span ng-show="error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && !fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && invalidMsg[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] !==field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number" class="notValid date-component">{{field.rwb_label_name}} is Mandatory <span ng-if=field.mandatory=="Yes">*</span></span>
+                <span ng-if="error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] && invalidMsg[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number] ==field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number " ng-class="{notValid: (error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number])}" class="date-component">{{field.rwb_label_name}} {{field.mandatory=='Yes' ? ' entered is invalid *' :'entered is invalid'}}</span>
+                <rto-date ng-attr-is-valid="{{(field.mandatory=='Yes') && (error[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]) ? notValid : valid}}" id={{field.logical_field_name}}_a_{{index}}_p_{{product.product_sequence_number}} date="fields[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" field-name="{{field.rwb_label_name}}" class="inputText dob" date1="date1[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" month="month[field.logical_field_name+'_a_'+(index)]" year="year[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]" disabledob="disableDob[field.logical_field_name+'_a_'+(index)+'_p_'+product.product_sequence_number]"></rto-date>
+            </div>
+            <div ng-switch-default class="col-md-6"></div>
+        </div>
+      </div>
+  </div>
+</div>
