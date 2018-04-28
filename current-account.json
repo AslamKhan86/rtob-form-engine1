@@ -1,0 +1,154 @@
+{
+  "links": {
+    "self": "/rcwb/hk/commitment/ntb/personal-loan.json"
+  },
+  "data": {
+    "attributes": {
+      "button-label-finish": "",
+      "button-label-next": "",
+      "default-values": "{\"e-current-employment-years\" : \"0\" ,\"e-current-employment-months\" : \"0\" ,\"crs-tin-unavail-1\" : \"1\" ,\"crs-tin-unavail-2\" : \"1\" ,\"crs-tin-unavail-3\" : \"1\" ,\"crs-tin-unavail-4\" : \"1\" ,\"crs-tin-unavail-5\" : \"1\" ,\"bs-e-statement-casa-and-td\" : \"Electronic\" ,\"bs-required-atm-debit-card\" : \"1\" ,\"bs-issuance-type\" : \"Post\" ,\"bs-phone-banking-required\" : \"1\" ,\"bs-preferred-atm-language-cc\" : \"English\" ,\"c-preferred-contact-type\" : \"Mobile\" ,\"i-off-us-cash\" : \"0\" ,\"i-off-us-others\" : \"0\" ,\"a-time-at-address-yrs\" : \"0\" ,\"a-time-at-address-mths\" : \"0\" ,\"cki-permanent-residence\" : \"1\" ,\"cki-do-not-disturb-email\" : \"Opt In\" ,\"cki-do-not-disturb-sms\" : \"Opt In\" ,\"cki-do-not-disturb-mail\" : \"Opt In\" ,\"cki-do-not-disturb-phone\" : \"Opt In\" ,\"a-mailing-address\" : \"Residential\" ,\"cod-all-docs-collected\" : \"0\" ,\"cod-doc-quality-acceptable\" : \"0\" ,\"ps-am-cc-application\" : \"1\" ,\"ps-zip-pin-postal-code-pl\" : \"0\" ,\"bs-consolidated-statement-required-sa-RSV-PB\" : \"0\" ,\"bs-consolidated-statement-required-sa-RSV-PG\" : \"0\" ,\"bs-consolidated-statement-required-sa-RSV-PE\" : \"0\" ,\"bs-consolidated-statement-required-sa-RSV-PN\" : \"0\" ,\"bs-consolidated-statement-required-sa-RSV-PP\" : \"0\" ,\"bs-consolidated-statement-required-sa-DDA-RF\" : \"0\" ,\"bs-consolidated-statement-required-ca-DDA-CA\" : \"0\" ,\"bs-consolidated-statement-required-ca-DDA-RM\" : \"0\" ,\"bs-consolidated-statement-required-sa-DDA-SE\" : \"0\" ,\"bs-consolidated-statement-required-sa-DDA-SF\" : \"0\" ,\"bs-consolidated-statement-required-sa-RSV-PD\" : \"0\" ,\"fat-confirmation\" : \"0\" ,\"bs-cheque-book-usd\" : \"0\" ,\"bs-cheque-book-cny\" : \"0\" ,\"bs-cheque-book-hkd\" : \"0\" ,\"fiu-customer-confirmation-required\" : \"0\" ,\"bs-required-atm-debit-card-service\" : \"0\" ,\"cdd-ao-for-business-purpose\" : \"0\" ,\"ps-marathon-saving-account\" : \"0\" ,\"a-per-same-as\" : \"0\" ,\"ps-mda-with-child\" : \"0\" ,\"ps-money-builder\" : \"0\" ,\"ps-addon-cny\" : \"0\" ,\"ps-addon-usd\" : \"0\" ,\"ps-declaration-rmb\" : \"0\" ,\"cod-dedupe-check-done\" : \"0\" ,\"ps-connected-with-someone-in-the-bank-cc\" : \"0\" ,\"ps-opt-out-over-limit\" : \"0\" ,\"ps-am-opt-out\" : \"0\" ,\"ps-special-instruction\" : \"0\" }",
+        "form-id": "checkout-hk-current-account",
+        "header-name": "checkout-hk-current-account",
+      "button-label-error": ""
+    },
+    "relationships": {
+      "steps": {
+        "data": [
+
+          {
+            "id": "step-for-internal-use",
+            "type": "step"
+          }
+        ]
+      }
+    },
+    "id": "checkout-hk-current-account",
+    "type": "form"
+  },
+  "included": [
+    {
+      "attributes": {
+        "mode": "required-mode",
+        "icon": "fiu",
+        "label": "For Internal Use",
+        "text": "For Internal Use"
+      },
+      "relationships": {
+        "fieldsets": {
+          "data": [
+            {
+              "id": "fs-hk-nd-fiu",
+              "type": "fieldset"
+            }
+          ]
+        },
+        "form": {
+          "data": {
+            "id": "checkout-hk-current-account",
+            "type": "form"
+          }
+        }
+      },
+      "id": "step-for-internal-use",
+      "type": "step"
+    },
+    {
+      "attributes": {},
+      "relationships": {
+        "components": {
+          "data": [
+            {
+              "id": "fiu-customer-confirmation-required",
+              "type": "switch-component"
+            }
+          ]
+        },
+        "step": {
+          "data": {
+            "id": "step-for-internal-use",
+            "type": "step"
+          }
+        }
+      },
+      "id": "fs-hk-nd-fiu",
+      "type": "fieldset"
+    },
+    {
+      "attributes": {
+        "reset-required": false,
+        "path": "fiu-customer-confirmation-required"
+      },
+      "relationships": {
+        "label": {
+          "data": {
+            "id": "lbl-hk-fiu-customer-confirmation-required",
+            "type": "field-label"
+          }
+        },
+        "fieldset": {
+          "data": {
+            "id": "fs-hk-nd-fiu",
+            "type": "fieldset"
+          }
+        },
+        "component-value": {
+          "data": {
+            "id": "cv-hk-fiu-customer-confirmation-required",
+            "type": "component-value"
+          }
+        },
+        "validations": {
+          "data": [
+            {
+              "id": "fiu-customer-confirmation-required-presence",
+              "type": "not-blank-condition"
+            }
+          ]
+        },
+        "presences": {
+          "data": []
+        }
+      },
+      "id": "fiu-customer-confirmation-required",
+      "type": "switch-component"
+    },
+    {
+      "attributes": {
+        "component": "fiu-customer-confirmation-required"
+      },
+      "relationships": {
+        "component": {
+          "data": {
+            "id": "fiu-customer-confirmation-required",
+            "type": "switch-component"
+          }
+        }
+      },
+      "id": "cv-hk-fiu-customer-confirmation-required",
+      "type": "component-value"
+    },
+    {
+      "attributes": {
+        "text": "Norkom Confirmation Required"
+      },
+      "id": "lbl-hk-fiu-customer-confirmation-required",
+      "type": "field-label"
+    },
+    {
+      "attributes": {
+        "error-message": "Norkom Confirmation Required is Mandatory",
+        "update-event": "instant"
+      },
+      "relationships": {
+        "value": {
+          "data": {
+            "id": "cv-hk-fiu-customer-confirmation-required",
+            "type": "component-value"
+          }
+        }
+      },
+      "id": "fiu-customer-confirmation-required-presence",
+      "type": "not-blank-condition"
+    }
+  ]
+}
